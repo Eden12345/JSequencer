@@ -32,7 +32,7 @@ There will only be an entry file and one script file for this project
 
 **Day 3**: Style page with Canvas
 
-**Day 4**: Populate with final samples and polish
+**Day 4/5 (Weekend)**: Populate with final samples and polish
 
 - Create three distinct sample packs to choose from
 - Fix bugs
