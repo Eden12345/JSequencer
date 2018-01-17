@@ -5,7 +5,7 @@
 	<title>JSequencer</title>
 
 	<script src="../build/Tone.js"></script>
-
+  <script type="text/javascript" src="./scripts/bundle.js"></script>
 	<link rel="stylesheet" type="text/css" href="./styles/main.css">
 
 	<script>
@@ -16,8 +16,18 @@
 <body>
 	<div class="main">
 		<div class="title">JSequencer</div>
+
+
+    <div class="test-button"></div>
+
+
 		<section class="sequencer-grid"></section>
 	</div>
 
 </body>
 </html>
+
+
+<!-- If you would like to add tone in the future, run 'npm install tone' in the command line
+
+Webpack is 'webpack --watch scripts/main.js scripts/bundle.js' -->

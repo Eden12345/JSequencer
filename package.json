@@ -12,9 +12,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Eden12345/JSequencer"
+  },
+  "dependencies": {
+    "tone": "^0.11.11"
   }
 }
-
-/* If you would like to add tone in the future, run 'npm install tone' in the command line */
-
-/* Webpack is 'webpack --watch scripts/main.js scripts/bundle.js' */
