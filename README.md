@@ -18,7 +18,7 @@ This project will be implemented with the following technologies:
 
 ### Architecture
 
-There will only be an entry file and one script file for this project.
+There will only be an entry file and one script file for this project
 
 ### Implementation Timeline
 
