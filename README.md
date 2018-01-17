@@ -47,3 +47,4 @@ There will only be an entry file and one script file for this project
 - [ ] Record and download mp3 of recording
 - [ ] Change volume of each sample
 - [ ] Toggle reverb on and off for each sample
+- [ ] Add a visualizer modal
