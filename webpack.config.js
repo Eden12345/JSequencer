@@ -7,10 +7,12 @@ module.exports = {
     path: path.resolve(__dirname, 'scripts'),
     filename: "bundle.js"
   },
+  // module: {
+  //   loaders: [
+  //     {exclude: /node_modules/}
+  //   ]
+  // },
   resolve: {
-                // for webpack 1:
-		// modulesDirectories: ["path/to/Tone.js/"],
-                // for webpack 2:
-    modules: ["path/to/Tone.js/"]
-	},
+    extensions: [".js", ".jsx", "*"]
+	}
 };
