@@ -1,0 +1,20 @@
+{
+  "name": "jsequencer",
+  "version": "1.0.0",
+  "description": "The features of this JavaScript sequencer will include:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Eden12345/JSequencer"
+  }
+}
+
+/* If you would like to add tone in the future, run 'npm install tone' in the command line */
+
+/* Webpack is 'webpack --watch scripts/main.js scripts/bundle.js' */
