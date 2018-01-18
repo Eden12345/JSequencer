@@ -69,14 +69,36 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_Tone__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_Tone__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_Tone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_Tone__);
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const testButton = document.getElementById('test-button');
+
+  const synth = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Synth();
+
+  const date = new Date();
+  const time = date.getTime();
+
+  synth.toMaster();
+
+
+  testButton.addEventListener('mousedown', () => {
+  	//instead of scheduling the synth immediately,
+  	//try scheduling 50ms in the future to avoid performance-related pops
+  	synth.triggerAttack('C4', '+0.05');
+    synth.triggerRelease('+0.25');
+  });
+  // synth.triggerAttack("C4", time);
+  // synth.triggerRelease(time + 0.25);
+
+  // synth.triggerAttackRelease("C4", 0.5, time);
+});
+
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory){

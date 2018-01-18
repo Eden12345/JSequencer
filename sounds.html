@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!-- <html>
+<head>
+  <meta charset="utf-8">
+	<title>JSequencer</title>
+
+	<link rel="stylesheet" type="text/css" href="./styles/sounds.css">
+  <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script></head>
+
+</head>
+<body>
+	<div class="main">
+		<div class="title">JSequencer</div>
+
+
+    <button id="test-button"></button>
+
+
+		<section class="sequencer-grid"></section>
+	</div>
+
+</body>
+</html> -->
+
+
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+  <script>
+
+    // var audio = new Audio("plus1_071016_Alex.WAV");
+    // var audio = new Audio("http://glpjt.s3.amazonaws.com/so/av/a12.mp3");
+
+    const hat = new Audio("./audio/Aki_H4.wav");
+
+    function playHat() {
+        hat.play();
+    }
+
+    const snare = new Audio("./audio/Box_Snr2.wav");
+
+    function playSnare() {
+        snare.play();
+    }
+
+    const kick = new Audio("./audio/Bef_K.wav");
+
+    function playKick() {
+        kick.play();
+    }
+
+    const chimes = new Audio("./audio/Str_Chim.wav");
+
+    function playChimes() {
+        chimes.play();
+    }
+
+  </script>
+
+  <div class="buttons">
+    <button onclick="playKick()" type="button">Kick</button>
+    <button onclick="playSnare()" type="button">Snare</button>
+    <button onclick="playHat()" type="button">Hi-Hat</button>
+    <button onclick="playChimes()" type="button">Chimes</button>
+  </div>
+
+</body>
+</html>
