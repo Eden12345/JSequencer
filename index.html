@@ -8,7 +8,6 @@ and 'webpack --watch' if you ever clone this repo -->
   <meta charset="utf-8">
 	<title>JSequencer</title>
 
-  <script type="text/javascript" src="./scripts/bundle.js"></script>
 	<link rel="stylesheet" type="text/css" href="./styles/main.css">
 
 </head>
@@ -17,12 +16,16 @@ and 'webpack --watch' if you ever clone this repo -->
 		<div class="title">JSequencer</div>
 
 
-    <button id="test-button-1"></button>
-    <button id="test-button-2"></button>
+    <button id="synth-button">SineWave Synth</button>
+    <button id="sampler-button">Drum Sampler</button>
+
+    <div style="hidden">Press any key!</div>
 
 
 		<section class="sequencer-grid"></section>
 	</div>
+
+  <script type="text/javascript" src="./scripts/bundle.js"></script>
 
 </body>
 </html>
