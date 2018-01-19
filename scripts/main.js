@@ -126,16 +126,16 @@ const samplerFunc = () => {
   const chimes = new Tone.Player({url: "../audio/Str_Chim.wav"}).toMaster();
 
   const playKeySampler = (e) => {
-    if (e.key == "1"){
+    if (e.key == "q"){
       kick.start();
     }
-    if (e.key == "2"){
+    if (e.key == "w"){
       snare.start();
     }
-    if (e.key == "3"){
+    if (e.key == "e"){
       hat.start();
     }
-    if (e.key == "4"){
+    if (e.key == "r"){
       chimes.start();
     }
   };
