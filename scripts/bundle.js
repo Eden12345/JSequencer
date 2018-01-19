@@ -74,19 +74,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const testButton = document.getElementById('test-button');
+  const testButton1 = document.getElementById('test-button-1');
 
-  const synth = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Synth();
+  const synth = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Synth({envelope: {attack  : 0.25}});
 
   const date = new Date();
   const time = date.getTime();
 
   synth.toMaster();
 
+  const playKeySynth = (e) => {
+    if (e.key == "a"){
+        console.log("You pressed a!");
+        synth.triggerAttack('C5', '+0.05');
+        synth.triggerRelease('+0.25');
+    }
+  };
 
-  testButton.addEventListener('mousedown', () => {
+  window.addEventListener("keyup", playKeySynth, false);
+
+  testButton1.addEventListener('mousedown', () => {
   	//instead of scheduling the synth immediately,
   	//try scheduling 50ms in the future to avoid performance-related pops
+
   	synth.triggerAttack('C4', '+0.05');
     synth.triggerRelease('+0.25');
   });

@@ -30,7 +30,7 @@ There will only be an entry file and one script file for this project
 - Allow individual samples to be toggled on and off
 - Be able to adjust BPM
 
-**Day 3**: Style page with Canvas
+**Day 3**: Style page with CSS
 
 **Day 4/5 (Weekend)**: Populate with final samples and polish
 
@@ -47,4 +47,6 @@ There will only be an entry file and one script file for this project
 - [ ] Record and download mp3 of recording
 - [ ] Change volume of each sample
 - [ ] Toggle reverb on and off for each sample
+- [ ] Add keypress options using the Tone quantize function
 - [ ] Add a visualizer modal
+- [ ] Add a synth generating
