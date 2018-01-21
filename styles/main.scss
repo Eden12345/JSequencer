@@ -73,12 +73,19 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin: 100px;
+}
+
+.instrument-title {
+  text-align: center;
 }
 
 .instrument {
   background-color: red;
-  width: 300px;
+  border-radius: 20px;
   height: 300px;
+  width: 300px;
 
   display: flex;
   flex-wrap: wrap;
@@ -88,15 +95,27 @@ section {
 }
 
 .drums {
+  height: 100px;
+  width: 526px;
 
+  align-items: center;
+  justify-content: center;
 }
 
 .vox {
+  height: 100px;
+  width: 380px;
 
+  align-items: center;
+  justify-content: center;
 }
 
 .synth {
+  height: 200px;
+  width: 450px;
 
+  align-items: center;
+  justify-content: center;
 }
 
 .chords {
@@ -109,6 +128,7 @@ section {
   margin: 5px;
   height: 60px;
   width: 60px;
+
   display: flex;
   align-items: center;
   justify-content: center;
