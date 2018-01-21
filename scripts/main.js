@@ -1,8 +1,7 @@
 import Tone from "Tone";
 
 //load synth
-const synth = new Tone.Synth({envelope: {attack  : 0.25}});
-synth.toMaster();
+const synth = new Tone.Synth({envelope: {attack  : 0.25}}).toMaster();
 
 //map keys to synth
 const playKeySynth = (e) => {

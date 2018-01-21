@@ -74,8 +74,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 //load synth
-const synth = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Synth({envelope: {attack  : 0.25}});
-synth.toMaster();
+const synth = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Synth({envelope: {attack  : 0.25}}).toMaster();
 
 //map keys to synth
 const playKeySynth = (e) => {
