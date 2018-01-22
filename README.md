@@ -6,6 +6,6 @@ I utilized the Tone.js library to create an oscillator through the Web Audio API
 
 Using jQuery, I added a simple visual effect to indicate to the user whenever keypress are triggering an action on a specific instrument.
 
-![screencap](https://github.com/Eden12345/JSequencer/blob/master/assets/JSequencer%20Wireframe.png)
+![screencap](https://github.com/Eden12345/JSequencer/blob/master/assets/screencap.png)
 
 I will be refactoring this shortly so that I instead use my own custom DOM manipulation library.
