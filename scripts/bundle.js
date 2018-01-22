@@ -186,13 +186,13 @@ const playKeySampler = (e) => {
   if (e.key == "8"){
     scrubs1.start('+0.05');
   } else if (e.key == "9"){
-    scrubs2.start('+0.05');
-  } else if (e.key == "0"){
     scrubs3.start('+0.05');
+  } else if (e.key == "0"){
+    scrubs2.start('+0.05');
   } else if (e.key == "-"){
-    scrubs4.start('+0.05');
-  } else if (e.key == "="){
     scrubs5.start('+0.05');
+  } else if (e.key == "="){
+    scrubs4.start('+0.05');
   }
 
   //map keys to chord samples
