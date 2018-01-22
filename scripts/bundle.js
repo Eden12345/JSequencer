@@ -138,11 +138,11 @@ const shaker2 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "s
 // const scrubs3 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs3.mp3"}).toMaster();
 // const scrubs4 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs4.mp3"}).toMaster();
 // const scrubs5 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs5.mp3"}).toMaster();
-const scrubs1 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs1.wav"}).toMaster();
-const scrubs2 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs2.wav"}).toMaster();
-const scrubs3 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs3.wav"}).toMaster();
-const scrubs4 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs4.wav"}).toMaster();
-const scrubs5 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs5.wav"}).toMaster();
+const scrubs1 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs1.mp3"}).toMaster();
+const scrubs2 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs2.mp3"}).toMaster();
+const scrubs3 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs3.mp3"}).toMaster();
+const scrubs4 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs4.mp3"}).toMaster();
+const scrubs5 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/scrubs/noscrubs5.mp3"}).toMaster();
 
 //load chord samples
 //NOTE: may need to turn up the gain on these; the compressor has already been turned up in Logic Pro
