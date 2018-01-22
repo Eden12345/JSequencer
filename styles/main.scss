@@ -74,7 +74,7 @@ main {
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
 }
 
 section {
@@ -108,9 +108,7 @@ section {
   flex-wrap: wrap;
 }
 
-.drums {
-  background-color: lightyellow;
-
+#drums {
   height: 100px;
   width: 526px;
 
@@ -118,9 +116,7 @@ section {
   justify-content: center;
 }
 
-.vox {
-  background-color: lightblue;
-
+#vox {
   height: 100px;
   width: 380px;
 
@@ -128,9 +124,7 @@ section {
   justify-content: center;
 }
 
-.synth {
-  background-color: aquamarine;
-
+#synth {
   padding-top: 6px;
   padding-bottom: 6px;
 
@@ -141,9 +135,7 @@ section {
   justify-content: center;
 }
 
-.chords {
-  background-color: mediumpurple;
-
+#chords {
   height: 280px;
   width: 300px;
   padding-left: 15px;
@@ -152,6 +144,22 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.yellow {
+  background-color: lightyellow;
+}
+
+.green {
+  background-color: aquamarine;
+}
+
+.blue {
+  background-color: lightblue;
+}
+
+.purple {
+  background-color: mediumpurple;
 }
 
 .key-row {

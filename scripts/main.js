@@ -1,5 +1,28 @@
 import Tone from "Tone";
 
+const colors = ["yellow", "green", "blue", "purple"];
+
+const genRandInt = (max) => {
+  return Math.floor(Math.random() * Math.floor(max));
+};
+
+const genNewColor = (id) => {
+  let randInt = genRandInt(3);
+
+  if ($(`#${id}`).hasClass(`${colors[randInt]}`)) {
+    return genNewColor(id);
+  } else {
+    return colors[randInt];
+  }
+};
+
+const changeInstrumentColor = (id) => {
+  const newColor = genNewColor(id);
+
+  $(`#${id}`).removeClass();
+  $(`#${id}`).addClass(`instrument ${newColor}`);
+};
+
 //load synth
 const synth = new Tone.Synth({envelope: {attack  : 0.25}}).toMaster();
 
@@ -8,36 +31,47 @@ const playKeySynth = (e) => {
   if (e.key == "a"){
     synth.triggerAttack('G2', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "s"){
     synth.triggerAttack('Bb2', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "d"){
     synth.triggerAttack('C3', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "f"){
     synth.triggerAttack('D3', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "g"){
     synth.triggerAttack('F3', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "h"){
     synth.triggerAttack('G3', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "z"){
     synth.triggerAttack('Bb3', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "x"){
     synth.triggerAttack('C4', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "c"){
     synth.triggerAttack('D4', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "v"){
     synth.triggerAttack('F4', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   } else if (e.key == "b"){
     synth.triggerAttack('G4', '+0.05');
     synth.triggerRelease('+0.25');
+    changeInstrumentColor("synth");
   }
 };
 
@@ -97,50 +131,70 @@ const playKeySampler = (e) => {
   //map keys to drum samples
   if (e.key == "`"){
     kick.start('+0.05');
+    changeInstrumentColor("drums");
   } else if (e.key == "1"){
     snare.start('+0.05');
+    changeInstrumentColor("drums");
   } else if (e.key == "2"){
     rim.start('+0.05');
+    changeInstrumentColor("drums");
   } else if (e.key == "3"){
     hat1.start('+0.05');
+    changeInstrumentColor("drums");
   } else if (e.key == "4"){
     hat2.start('+0.05');
+    changeInstrumentColor("drums");
   } else if (e.key == "5"){
     shaker1.start('+0.05');
+    changeInstrumentColor("drums");
   } else if (e.key == "6"){
     shaker2.start('+0.05');
+    changeInstrumentColor("drums");
   }
 
   //map keys to vox samples
   if (e.key == "8"){
     scrubs1.start('+0.05');
+    changeInstrumentColor("vox");
   } else if (e.key == "9"){
     scrubs3.start('+0.05');
+    changeInstrumentColor("vox");
   } else if (e.key == "0"){
     scrubs2.start('+0.05');
+    changeInstrumentColor("vox");
   } else if (e.key == "-"){
     scrubs5.start('+0.05');
+    changeInstrumentColor("vox");
   } else if (e.key == "="){
     scrubs4.start('+0.05');
+    changeInstrumentColor("vox");
   }
 
   //map keys to chord samples
   if (e.key == ","){
     chord1a.start('+0.05');
+    changeInstrumentColor("chords");
   } else if (e.key == "."){
     chord1b.start('+0.05');
+    changeInstrumentColor("chords");
   } else if (e.key == "/"){
     chord2a.start('+0.05');
+    changeInstrumentColor("chords");
   } else if (e.key == "'"){
     chord2b.start('+0.05');
+    changeInstrumentColor("chords");
   } else if (e.key == "["){
     chord2c.start('+0.05');
+    changeInstrumentColor("chords");
   } else if (e.key == "]"){
     chord2d.start('+0.05');
+    changeInstrumentColor("chords");
   } else if (e.key == "l"){
     chord3a.start('+0.05');
+    changeInstrumentColor("chords");
   } else if (e.key == ";"){
     chord3b.start('+0.05');
+    changeInstrumentColor("chords");
   }
 };
 
