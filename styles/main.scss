@@ -1,3 +1,5 @@
+
+
 /* RESET */
 
 html, body, div, span, applet, object, iframe,
@@ -89,7 +91,7 @@ section {
 }
 
 .instrument-title {
-  padding: 20px;
+  padding: 15px;
 
   text-align: center;
 }
@@ -98,7 +100,6 @@ section {
   margin-left: 100px;
   margin-right: 100px;
 
-  background-color: red;
   border-radius: 20px;
   height: 300px;
   width: 300px;
@@ -108,6 +109,8 @@ section {
 }
 
 .drums {
+  background-color: lightyellow;
+
   height: 100px;
   width: 526px;
 
@@ -116,6 +119,8 @@ section {
 }
 
 .vox {
+  background-color: lightblue;
+
   height: 100px;
   width: 380px;
 
@@ -124,6 +129,8 @@ section {
 }
 
 .synth {
+  background-color: aquamarine;
+
   padding-top: 6px;
   padding-bottom: 6px;
 
@@ -135,6 +142,8 @@ section {
 }
 
 .chords {
+  background-color: mediumpurple;
+
   height: 280px;
   width: 300px;
   padding-left: 15px;

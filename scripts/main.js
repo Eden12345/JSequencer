@@ -51,6 +51,7 @@ window.addEventListener("keydown", playKeySynth, false);
 // const hat2 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/hihat2.wav"}).toMaster();
 // const shaker1 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/shaker1.wav"}).toMaster();
 // const shaker2 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/shaker2.wav"}).toMaster();
+
 const kick = new Tone.Player({url: "samples/drums/kick.wav"}).toMaster();
 const snare = new Tone.Player({url: "samples/drums/snare.wav"}).toMaster();
 const rim = new Tone.Player({url: "samples/drums/rim.wav"}).toMaster();
@@ -65,6 +66,7 @@ const shaker2 = new Tone.Player({url: "samples/drums/shaker2.wav"}).toMaster();
 // const scrubs3 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs3.mp3"}).toMaster();
 // const scrubs4 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs4.mp3"}).toMaster();
 // const scrubs5 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs5.mp3"}).toMaster();
+
 const scrubs1 = new Tone.Player({url: "samples/scrubs/noscrubs1.mp3"}).toMaster();
 const scrubs2 = new Tone.Player({url: "samples/scrubs/noscrubs2.mp3"}).toMaster();
 const scrubs3 = new Tone.Player({url: "samples/scrubs/noscrubs3.mp3"}).toMaster();
@@ -72,7 +74,6 @@ const scrubs4 = new Tone.Player({url: "samples/scrubs/noscrubs4.mp3"}).toMaster(
 const scrubs5 = new Tone.Player({url: "samples/scrubs/noscrubs5.mp3"}).toMaster();
 
 //load chord samples
-//NOTE: may need to turn up the gain on these; the compressor has already been turned up in Logic Pro
 // const chord1a = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord1a.mp3"}).toMaster();
 // const chord1b = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord1b.mp3"}).toMaster();
 // const chord2a = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord2a.mp3"}).toMaster();
@@ -81,6 +82,7 @@ const scrubs5 = new Tone.Player({url: "samples/scrubs/noscrubs5.mp3"}).toMaster(
 // const chord2d = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord2d.mp3"}).toMaster();
 // const chord3a = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord3a.mp3"}).toMaster();
 // const chord3b = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord3b.mp3"}).toMaster();
+
 const chord1a = new Tone.Player({url: "samples/chords/chord1a.mp3"}).toMaster();
 const chord1b = new Tone.Player({url: "samples/chords/chord1b.mp3"}).toMaster();
 const chord2a = new Tone.Player({url: "samples/chords/chord2a.mp3"}).toMaster();
