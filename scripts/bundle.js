@@ -248,7 +248,7 @@ const playKeySampler = (e) => {
     chord1a.start('+0.05');
     changeInstrumentColor("chords");
   } else if (e.key == "."){
-    // chord1b.start('+0.05');
+    chord1b.start('+0.05');
     changeInstrumentColor("chords");
   } else if (e.key == "/"){
     chord2a.start('+0.05');
