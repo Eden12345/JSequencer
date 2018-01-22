@@ -55,11 +55,16 @@ table {
 
 body {
   background-color: pink;
+
   font-family: sans-serif;
+  color: white;
+  font-size: 26px;
 }
 
 header {
   text-align: center;
+  font-size: 36px;
+  padding-top: 20px;
 }
 
 main {
@@ -67,21 +72,32 @@ main {
 
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   margin: 100px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.top-instruments {
+  margin-top: 50px;
+  margin-bottom: 0px;
 }
 
 .instrument-title {
+  padding: 20px;
+
   text-align: center;
 }
 
 .instrument {
+  margin-left: 100px;
+  margin-right: 100px;
+
   background-color: red;
   border-radius: 20px;
   height: 300px;
@@ -89,9 +105,6 @@ section {
 
   display: flex;
   flex-wrap: wrap;
-
-  margin-left: 100px;
-  margin-right: 100px;
 }
 
 .drums {
@@ -111,7 +124,10 @@ section {
 }
 
 .synth {
-  height: 200px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  height: 180px;
   width: 450px;
 
   align-items: center;
@@ -119,7 +135,35 @@ section {
 }
 
 .chords {
+  height: 280px;
+  width: 300px;
+  padding-left: 15px;
+  padding-right: 15px;
 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.key-row {
+  display: flex;
+  margin: 10px;
+  width: 100%
+}
+
+.row-1 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.row-2 {
+  display: flex;
+  justify-content: center;
+}
+
+.row-3 {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .key {
@@ -132,12 +176,18 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  color: grey;
+  font-size: 20px;
 }
 
 footer {
-  // background-color: green;
+  padding-bottom: 20px;
+
   position: absolute;
   bottom: 0;
   width: 100vw;
+
   text-align: center;
+  font-size: 20px;
 }
