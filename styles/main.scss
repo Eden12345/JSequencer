@@ -69,6 +69,14 @@ header {
   padding-top: 30px;
 }
 
+.description {
+  margin: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+
+  font-size: 20px;
+}
+
 main {
   height: 90vh;
 
@@ -151,7 +159,8 @@ section {
 }
 
 .green {
-  background-color: aquamarine;
+  // background-color: aquamarine;
+  background-color: #b3ffe6;
 }
 
 .blue {
@@ -159,7 +168,8 @@ section {
 }
 
 .purple {
-  background-color: mediumpurple;
+  // background-color: mediumpurple;
+  background-color: #c599ff;
 }
 
 .key-row {
@@ -201,7 +211,7 @@ section {
 footer {
   padding-bottom: 20px;
 
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100vw;
 

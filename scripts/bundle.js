@@ -80,7 +80,7 @@ const genRandInt = (max) => {
 };
 
 const genNewColor = (id) => {
-  let randInt = genRandInt(3);
+  let randInt = genRandInt(4);
 
   if ($(`#${id}`).hasClass(`${colors[randInt]}`)) {
     return genNewColor(id);
@@ -248,7 +248,7 @@ const playKeySampler = (e) => {
     chord1a.start('+0.05');
     changeInstrumentColor("chords");
   } else if (e.key == "."){
-    chord1b.start('+0.05');
+    // chord1b.start('+0.05');
     changeInstrumentColor("chords");
   } else if (e.key == "/"){
     chord2a.start('+0.05');
