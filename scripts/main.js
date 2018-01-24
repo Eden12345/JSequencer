@@ -1,5 +1,8 @@
 import Tone from "Tone";
 
+const playing = {playing: false};
+let interval;
+
 const colors = ["yellow", "green", "blue", "purple"];
 
 const genRandInt = (max) => {
@@ -30,47 +33,49 @@ const synth = new Tone.Synth({envelope: {attack  : 0.25}}).toMaster();
 const playKeySynth = (e) => {
   e.preventDefault();
 
-  if (e.key == "a"){
+  const k = e.which;
+
+  if (k == 65){
     synth.triggerAttack('G2', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "s"){
+  } else if (k == 83){
     synth.triggerAttack('Bb2', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "d"){
+  } else if (k == 68){
     synth.triggerAttack('C3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "f"){
+  } else if (k == 70){
     synth.triggerAttack('D3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "g"){
+  } else if (k == 71){
     synth.triggerAttack('F3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "h"){
+  } else if (k == 72){
     synth.triggerAttack('G3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "z"){
+  } else if (k == 90){
     synth.triggerAttack('Bb3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "x"){
+  } else if (k == 88){
     synth.triggerAttack('C4', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "c"){
+  } else if (k == 67){
     synth.triggerAttack('D4', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "v"){
+  } else if (k == 86){
     synth.triggerAttack('F4', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
-  } else if (e.key == "b"){
+  } else if (k == 66){
     synth.triggerAttack('G4', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
@@ -79,15 +84,9 @@ const playKeySynth = (e) => {
 
 window.addEventListener("keydown", playKeySynth, false);
 
-//load drum samples
-// const kick = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/kick.wav"}).toMaster();
-// const snare = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/snare.wav"}).toMaster();
-// const rim = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/rim.wav"}).toMaster();
-// const hat1 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/hihat1.wav"}).toMaster();
-// const hat2 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/hihat2.wav"}).toMaster();
-// const shaker1 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/shaker1.wav"}).toMaster();
-// const shaker2 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/shaker2.wav"}).toMaster();
+$('body').keydown(playKeySynth);
 
+//load drum samples
 const kick = new Tone.Player({url: "samples/drums/kick.wav"}).toMaster();
 const snare = new Tone.Player({url: "samples/drums/snare.wav"});
 snare.volume.value = -3;
@@ -107,12 +106,6 @@ shaker2.volume.value = -8;
 shaker2.toMaster();
 
 //load vox samples
-// const scrubs1 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs1.mp3"}).toMaster();
-// const scrubs2 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs2.mp3"}).toMaster();
-// const scrubs3 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs3.mp3"}).toMaster();
-// const scrubs4 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs4.mp3"}).toMaster();
-// const scrubs5 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs5.mp3"}).toMaster();
-
 const scrubs1 = new Tone.Player({url: "samples/scrubs/noscrubs1.mp3"}).toMaster();
 const scrubs2 = new Tone.Player({url: "samples/scrubs/noscrubs2.mp3"}).toMaster();
 const scrubs3 = new Tone.Player({url: "samples/scrubs/noscrubs3.mp3"}).toMaster();
@@ -120,15 +113,6 @@ const scrubs4 = new Tone.Player({url: "samples/scrubs/noscrubs4.mp3"}).toMaster(
 const scrubs5 = new Tone.Player({url: "samples/scrubs/noscrubs5.mp3"}).toMaster();
 
 //load chord samples
-// const chord1a = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord1a.mp3"}).toMaster();
-// const chord1b = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord1b.mp3"}).toMaster();
-// const chord2a = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord2a.mp3"}).toMaster();
-// const chord2b = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord2b.mp3"}).toMaster();
-// const chord2c = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord2c.mp3"}).toMaster();
-// const chord2d = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord2d.mp3"}).toMaster();
-// const chord3a = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord3a.mp3"}).toMaster();
-// const chord3b = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/chords/chord3b.mp3"}).toMaster();
-
 const chord1a = new Tone.Player({url: "samples/chords/chord1a.mp3"}).toMaster();
 const chord1b = new Tone.Player({url: "samples/chords/chord1b.mp3"}).toMaster();
 const chord2a = new Tone.Player({url: "samples/chords/chord2a.mp3"}).toMaster();
@@ -141,71 +125,72 @@ const chord3b = new Tone.Player({url: "samples/chords/chord3b.mp3"}).toMaster();
 const playKeySampler = (e) => {
   e.preventDefault();
 
-  //map keys to drum samples
-  if (e.key == "`"){
+  const k = e.which;
+
+  if (k == 192){
     kick.start('+0.05');
     changeInstrumentColor("drums");
-  } else if (e.key == "1"){
+  } else if (k == 49){
     snare.start('+0.05');
     changeInstrumentColor("drums");
-  } else if (e.key == "2"){
+  } else if (k == 50){
     rim.start('+0.05');
     changeInstrumentColor("drums");
-  } else if (e.key == "3"){
+  } else if (k == 51){
     hat1.start('+0.05');
     changeInstrumentColor("drums");
-  } else if (e.key == "4"){
+  } else if (k == 52){
     hat2.start('+0.05');
     changeInstrumentColor("drums");
-  } else if (e.key == "5"){
+  } else if (k == 53){
     shaker1.start('+0.05');
     changeInstrumentColor("drums");
-  } else if (e.key == "6"){
+  } else if (k == 54){
     shaker2.start('+0.05');
     changeInstrumentColor("drums");
   }
 
   //map keys to vox samples
-  if (e.key == "8"){
+  if (k == 56){
     scrubs1.start('+0.05');
     changeInstrumentColor("vox");
-  } else if (e.key == "9"){
+  } else if (k == 57){
     scrubs3.start('+0.05');
     changeInstrumentColor("vox");
-  } else if (e.key == "0"){
+  } else if (k == 48){
     scrubs2.start('+0.05');
     changeInstrumentColor("vox");
-  } else if (e.key == "-"){
+  } else if (k == 173){
     scrubs5.start('+0.05');
     changeInstrumentColor("vox");
-  } else if (e.key == "="){
+  } else if (k == 61){
     scrubs4.start('+0.05');
     changeInstrumentColor("vox");
   }
 
   //map keys to chord samples
-  if (e.key == ","){
+  if (k == 188){
     chord1a.start('+0.05');
     changeInstrumentColor("chords");
-  } else if (e.key == "."){
+  } else if (k == 190){
     chord1b.start('+0.05');
     changeInstrumentColor("chords");
-  } else if (e.key == "/"){
+  } else if (k == 191){
     chord2a.start('+0.05');
     changeInstrumentColor("chords");
-  } else if (e.key == "'"){
+  } else if (k == 222){
     chord2b.start('+0.05');
     changeInstrumentColor("chords");
-  } else if (e.key == "["){
+  } else if (k == 219){
     chord2c.start('+0.05');
     changeInstrumentColor("chords");
-  } else if (e.key == "]"){
+  } else if (k == 221){
     chord2d.start('+0.05');
     changeInstrumentColor("chords");
-  } else if (e.key == "l"){
+  } else if (k == 76){
     chord3a.start('+0.05');
     changeInstrumentColor("chords");
-  } else if (e.key == ";"){
+  } else if (k == 59){
     chord3b.start('+0.05');
     changeInstrumentColor("chords");
   }
@@ -213,12 +198,80 @@ const playKeySampler = (e) => {
 
 window.addEventListener("keydown", playKeySampler, false);
 
-// const playSequence = (e) => {
-//   debugger
-//   e.preventDefault();
-//   console.log("hey you pressed the button");
-// };
+$('body').keydown(playKeySampler);
 
-$("button").on("click", () => {
-  alert( "Handler for called." );
-});
+const simulateKeyPress = (keyCode) => {
+  jQuery.event.trigger({ type : 'keydown', which : keyCode });
+  // jQuery.event.trigger({ type : 'keyup', which : keyCode });
+};
+
+const playDrumSequence = () => {
+  simulateKeyPress(192);
+  simulateKeyPress(51);
+  setTimeout(() => simulateKeyPress(51), 500);
+  setTimeout(() => simulateKeyPress(49), 1000);
+  setTimeout(() => simulateKeyPress(51), 1000);
+  setTimeout(() => simulateKeyPress(51), 1500);
+
+  setTimeout(() => simulateKeyPress(192), 2000);
+  setTimeout(() => simulateKeyPress(51), 2000);
+  setTimeout(() => simulateKeyPress(51), 2500);
+  setTimeout(() => simulateKeyPress(49), 3000);
+  setTimeout(() => simulateKeyPress(51), 3000);
+  setTimeout(() => simulateKeyPress(51), 3500);
+
+  setTimeout(() => simulateKeyPress(192), 4000);
+  setTimeout(() => simulateKeyPress(51), 4000);
+  setTimeout(() => simulateKeyPress(192), 4250);
+  setTimeout(() => simulateKeyPress(51), 4500);
+  setTimeout(() => simulateKeyPress(49), 5000);
+  setTimeout(() => simulateKeyPress(51), 5000);
+  setTimeout(() => simulateKeyPress(51), 5500);
+
+  setTimeout(() => simulateKeyPress(192), 5875);
+  setTimeout(() => simulateKeyPress(192), 6000);
+  setTimeout(() => simulateKeyPress(51), 6000);
+  setTimeout(() => simulateKeyPress(51), 6500);
+  setTimeout(() => simulateKeyPress(49), 7000);
+  setTimeout(() => simulateKeyPress(51), 7000);
+  setTimeout(() => simulateKeyPress(51), 7500);
+};
+
+const playSynthSequence = () => {
+  //bass keys: 65, 83, 68, 70, 71, 72
+
+  simulateKeyPress(70);
+
+  // setTimeout(() => simulateKeyPress(71), 1825);
+  setTimeout(() => simulateKeyPress(83), 2000);
+
+  // setTimeout(() => simulateKeyPress(70), 3825);
+  setTimeout(() => simulateKeyPress(71), 4000);
+
+  // setTimeout(() => simulateKeyPress(68), 5825);
+  setTimeout(() => simulateKeyPress(68), 6000);
+
+  // setTimeout(() => simulateKeyPress(71), 7500);
+  // setTimeout(() => simulateKeyPress(72), 7850);
+};
+
+const playSequence = () => {
+  playDrumSequence();
+  playSynthSequence();
+};
+
+const changeButton = () => {
+  if (playing[playing]) {
+    window.clearInterval(interval);
+    playing[playing] = false;
+    $("button").text("Play example sequence");
+  } else {
+    playSequence();
+    interval = setInterval(playSequence, 8000);
+    playing[playing] = true;
+    $("button").text("Stop at end of loop");
+  }
+};
+
+$("button").click(changeButton);
+// $("button").click(playSequence);
