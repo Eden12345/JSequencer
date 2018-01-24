@@ -101,6 +101,8 @@ const synth = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Synth({envelope: 
 
 //map keys to synth
 const playKeySynth = (e) => {
+  e.preventDefault();
+
   if (e.key == "a"){
     synth.triggerAttack('G2', '+0.05');
     synth.triggerRelease('+0.25');
@@ -160,12 +162,22 @@ window.addEventListener("keydown", playKeySynth, false);
 // const shaker2 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/drums/shaker2.wav"}).toMaster();
 
 const kick = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/kick.wav"}).toMaster();
-const snare = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/snare.wav"}).toMaster();
-const rim = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/rim.wav"}).toMaster();
+const snare = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/snare.wav"});
+snare.volume.value = -3;
+snare.toMaster();
+const rim = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/rim.wav"});
+rim.volume.value = -6;
+rim.toMaster();
 const hat1 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/hihat1.wav"}).toMaster();
-const hat2 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/hihat2.wav"}).toMaster();
-const shaker1 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/shaker1.wav"}).toMaster();
-const shaker2 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/shaker2.wav"}).toMaster();
+const hat2 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/hihat2.wav"});
+hat2.volume.value = -4;
+hat2.toMaster();
+const shaker1 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/shaker1.wav"});
+shaker1.volume.value = -8;
+shaker1.toMaster();
+const shaker2 = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/drums/shaker2.wav"});
+shaker2.volume.value = -8;
+shaker2.toMaster();
 
 //load vox samples
 // const scrubs1 = new Tone.Player({url: "https://s3.us-east-2.amazonaws.com/js-music-projects/scrub+vocals/noscrubs1.mp3"}).toMaster();
@@ -200,6 +212,7 @@ const chord3a = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "s
 const chord3b = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: "samples/chords/chord3b.mp3"}).toMaster();
 
 const playKeySampler = (e) => {
+  e.preventDefault();
 
   //map keys to drum samples
   if (e.key == "`"){
@@ -272,6 +285,16 @@ const playKeySampler = (e) => {
 };
 
 window.addEventListener("keydown", playKeySampler, false);
+
+// const playSequence = (e) => {
+//   debugger
+//   e.preventDefault();
+//   console.log("hey you pressed the button");
+// };
+
+$("button").on("click", () => {
+  alert( "Handler for called." );
+});
 
 
 /***/ }),
