@@ -309,7 +309,7 @@ const playChordSequence = () => {
 
   setTimeout(() => simulateKeyPress(76), 8000);
 
-  setTimeout(() => simulateKeyPress(59), 10000);
+  setTimeout(() => simulateKeyPress(186), 10000);
 
   setTimeout(() => simulateKeyPress(219), 12000);
 
