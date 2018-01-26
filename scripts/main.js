@@ -322,21 +322,29 @@ const playSynthSequence = () => {
 
 const playChordSequence = () => {
   simulateKeyPress(188);
+  setTimeout(() => simulateKeyPress(76), 750);
+  setTimeout(() => simulateKeyPress(188), 1500);
 
   setTimeout(() => simulateKeyPress(190), 2000);
+  setTimeout(() => simulateKeyPress(190), 3500);
 
   setTimeout(() => simulateKeyPress(191), 4000);
+  setTimeout(() => simulateKeyPress(191), 5750);
 
   setTimeout(() => simulateKeyPress(222), 6000);
 
 
-  setTimeout(() => simulateKeyPress(76), 8000);
+  setTimeout(() => simulateKeyPress(188), 8000);
+  setTimeout(() => simulateKeyPress(76), 8750);
 
   setTimeout(() => simulateKeyPress(186), 10000);
+  setTimeout(() => simulateKeyPress(186), 11500);
 
   setTimeout(() => simulateKeyPress(219), 12000);
+  setTimeout(() => simulateKeyPress(219), 13750);
 
   setTimeout(() => simulateKeyPress(221), 14000);
+  setTimeout(() => simulateKeyPress(221), 15000);
 };
 
 const playVoxSequence = () => {
