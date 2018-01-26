@@ -190,7 +190,7 @@ const playKeySampler = (e) => {
   } else if (k == 76){
     chord3a.start('+0.05');
     changeInstrumentColor("chords");
-  } else if (k == 186){
+  } else if (k == 186 || k == 59){
     chord3b.start('+0.05');
     changeInstrumentColor("chords");
   }
