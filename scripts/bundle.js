@@ -263,7 +263,7 @@ const playKeySampler = (e) => {
   } else if (k == 76){
     chord3a.start('+0.05');
     changeInstrumentColor("chords");
-  } else if (k == 59){
+  } else if (k == 186){
     chord3b.start('+0.05');
     changeInstrumentColor("chords");
   }
@@ -283,7 +283,7 @@ const playDrumSequence = () => {
   simulateKeyPress(51);
   // setTimeout(() => simulateKeyPress(51), 500);
   setTimeout(() => simulateKeyPress(51), 875);
-  setTimeout(() => simulateKeyPress(49), 1000);
+  setTimeout(() => simulateKeyPress(50), 1000);
   setTimeout(() => simulateKeyPress(51), 1000);
   setTimeout(() => simulateKeyPress(51), 1500);
   setTimeout(() => simulateKeyPress(51), 1875);
@@ -291,7 +291,7 @@ const playDrumSequence = () => {
   setTimeout(() => simulateKeyPress(192), 2000);
   // setTimeout(() => simulateKeyPress(51), 2000);
   setTimeout(() => simulateKeyPress(51), 2500);
-  setTimeout(() => simulateKeyPress(49), 3000);
+  setTimeout(() => simulateKeyPress(50), 3000);
   setTimeout(() => simulateKeyPress(51), 3000);
   setTimeout(() => simulateKeyPress(51), 3500);
 
@@ -300,7 +300,7 @@ const playDrumSequence = () => {
   setTimeout(() => simulateKeyPress(192), 4250);
   setTimeout(() => simulateKeyPress(51), 4500);
   setTimeout(() => simulateKeyPress(51), 4875);
-  setTimeout(() => simulateKeyPress(49), 5000);
+  setTimeout(() => simulateKeyPress(50), 5000);
   setTimeout(() => simulateKeyPress(51), 5000);
   setTimeout(() => simulateKeyPress(51), 5500);
 
@@ -308,7 +308,7 @@ const playDrumSequence = () => {
   setTimeout(() => simulateKeyPress(192), 6000);
   setTimeout(() => simulateKeyPress(51), 6000);
   setTimeout(() => simulateKeyPress(51), 6500);
-  setTimeout(() => simulateKeyPress(49), 7000);
+  setTimeout(() => simulateKeyPress(50), 7000);
   setTimeout(() => simulateKeyPress(51), 7000);
   setTimeout(() => simulateKeyPress(51), 7500);
 
@@ -316,7 +316,7 @@ const playDrumSequence = () => {
   setTimeout(() => simulateKeyPress(51), 8000);
   setTimeout(() => simulateKeyPress(51), 8500);
   setTimeout(() => simulateKeyPress(51), 8875);
-  setTimeout(() => simulateKeyPress(49), 9000);
+  setTimeout(() => simulateKeyPress(50), 9000);
   setTimeout(() => simulateKeyPress(51), 9000);
   setTimeout(() => simulateKeyPress(51), 9500);
   setTimeout(() => simulateKeyPress(51), 9875);
@@ -324,7 +324,7 @@ const playDrumSequence = () => {
   setTimeout(() => simulateKeyPress(192), 10000);
   // setTimeout(() => simulateKeyPress(51), 10000);
   setTimeout(() => simulateKeyPress(51), 10500);
-  setTimeout(() => simulateKeyPress(49), 11000);
+  setTimeout(() => simulateKeyPress(50), 11000);
   setTimeout(() => simulateKeyPress(51), 11000);
   setTimeout(() => simulateKeyPress(51), 11500);
 
@@ -333,7 +333,7 @@ const playDrumSequence = () => {
   setTimeout(() => simulateKeyPress(192), 12250);
   setTimeout(() => simulateKeyPress(51), 12500);
   setTimeout(() => simulateKeyPress(51), 12875);
-  setTimeout(() => simulateKeyPress(49), 13000);
+  setTimeout(() => simulateKeyPress(50), 13000);
   setTimeout(() => simulateKeyPress(51), 13000);
   setTimeout(() => simulateKeyPress(51), 13500);
 
@@ -341,7 +341,7 @@ const playDrumSequence = () => {
   setTimeout(() => simulateKeyPress(192), 14000);
   setTimeout(() => simulateKeyPress(51), 14000);
   setTimeout(() => simulateKeyPress(51), 14500);
-  setTimeout(() => simulateKeyPress(49), 15000);
+  setTimeout(() => simulateKeyPress(50), 15000);
   setTimeout(() => simulateKeyPress(51), 15000);
   setTimeout(() => simulateKeyPress(51), 15500);
 };
@@ -382,7 +382,7 @@ const playChordSequence = () => {
 
   setTimeout(() => simulateKeyPress(76), 8000);
 
-  setTimeout(() => simulateKeyPress(59), 10000);
+  setTimeout(() => simulateKeyPress(186), 10000);
 
   setTimeout(() => simulateKeyPress(219), 12000);
 
