@@ -281,25 +281,43 @@ const playDrumSequence = () => {
 const playSynthSequence = () => {
   //bass keys: 65, 83, 68, 70, 71, 72
 
+  //descending keys: 66, 86, 67, 88, 90, 72
+
   simulateKeyPress(70);
+  setTimeout(() => simulateKeyPress(66), 500);
+  setTimeout(() => simulateKeyPress(86), 1500);
 
   setTimeout(() => simulateKeyPress(83), 1825);
+  setTimeout(() => simulateKeyPress(67), 2500);
+  setTimeout(() => simulateKeyPress(88), 3500);
 
   setTimeout(() => simulateKeyPress(71), 4000);
+  setTimeout(() => simulateKeyPress(86), 4500);
+  setTimeout(() => simulateKeyPress(67), 5500);
 
   setTimeout(() => simulateKeyPress(68), 5825);
   setTimeout(() => simulateKeyPress(68), 6000);
+  setTimeout(() => simulateKeyPress(88), 6500);
+  setTimeout(() => simulateKeyPress(90), 7500);
 
 
   setTimeout(() => simulateKeyPress(70), 8000);
   setTimeout(() => simulateKeyPress(71), 8325);
+  setTimeout(() => simulateKeyPress(66), 8500);
+  setTimeout(() => simulateKeyPress(86), 9500);
 
   setTimeout(() => simulateKeyPress(83), 10000);
+  setTimeout(() => simulateKeyPress(67), 10500);
+  setTimeout(() => simulateKeyPress(88), 11500);
 
   setTimeout(() => simulateKeyPress(71), 11825);
   setTimeout(() => simulateKeyPress(71), 12000);
+  setTimeout(() => simulateKeyPress(90), 12500);
+  setTimeout(() => simulateKeyPress(72), 13500);
 
   setTimeout(() => simulateKeyPress(68), 13825);
+  setTimeout(() => simulateKeyPress(90), 14500);
+  setTimeout(() => simulateKeyPress(88), 15500);
 };
 
 const playChordSequence = () => {
