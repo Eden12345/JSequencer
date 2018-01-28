@@ -46,6 +46,24 @@ table {
 	border-spacing: 0;
 }
 
+button {
+	background: none;
+	border: none;
+	font-size: 26px;
+	color: white;
+	cursor: pointer;
+	border: 1px solid white;
+	border-radius: 10px;
+	padding-top: 3px;
+	padding-bottom: 6px;
+	padding-left: 11px;
+	padding-right: 11px;
+}
+
+button:hover {
+	border: 1px solid lightgrey;
+	/* color: lightgrey; */
+}
 
 
 
@@ -83,6 +101,10 @@ main {
   justify-content: space-around;
 }
 
+.play {
+	margin-top: 20px;
+}
+
 section {
   margin: 100px;
 
@@ -92,8 +114,12 @@ section {
 }
 
 .top-instruments {
-  margin-top: 50px;
+  margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.bottom-instruments {
+	margin-top: 30px;
 }
 
 .instrument-title {
@@ -202,6 +228,11 @@ section {
 
   color: grey;
   font-size: 20px;
+}
+
+.opaque-key {
+	background-color: lightgrey;
+	opacity: 0.5;
 }
 
 footer {

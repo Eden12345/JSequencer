@@ -99,6 +99,17 @@ const changeInstrumentColor = (id) => {
   $(`#${id}`).addClass(`instrument ${newColor}`);
 };
 
+const highlightKey = (id) => {
+  $(`#${id}`).addClass("opaque-key");
+  setTimeout(() => {$(`#${id}`).removeClass("opaque-key");}, 250);
+};
+
+// const unHightlightKey = (e) => {
+//   $(`#${e.which}`).removeClass("opaque-key");
+// };
+//
+// window.addEventListener("keyup", unHightlightKey, false);
+
 //load synth
 const synth = new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Synth({envelope: {attack  : 0.25}}).toMaster();
 
@@ -112,46 +123,57 @@ const playKeySynth = (e) => {
     synth.triggerAttack('G2', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(65);
   } else if (k == 83){
     synth.triggerAttack('Bb2', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(83);
   } else if (k == 68){
     synth.triggerAttack('C3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(68);
   } else if (k == 70){
     synth.triggerAttack('D3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(70);
   } else if (k == 71){
     synth.triggerAttack('F3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(71);
   } else if (k == 72){
     synth.triggerAttack('G3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(72);
   } else if (k == 90){
     synth.triggerAttack('Bb3', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(90);
   } else if (k == 88){
     synth.triggerAttack('C4', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(88);
   } else if (k == 67){
     synth.triggerAttack('D4', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(67);
   } else if (k == 86){
     synth.triggerAttack('F4', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(86);
   } else if (k == 66){
     synth.triggerAttack('G4', '+0.05');
     synth.triggerRelease('+0.25');
     changeInstrumentColor("synth");
+    highlightKey(66);
   }
 };
 
@@ -203,69 +225,89 @@ const playKeySampler = (e) => {
   if (k == 192){
     kick.start('+0.05');
     changeInstrumentColor("drums");
+    highlightKey(192);
   } else if (k == 49){
     snare.start('+0.05');
     changeInstrumentColor("drums");
+    highlightKey(49);
   } else if (k == 50){
     rim.start('+0.05');
     changeInstrumentColor("drums");
+    highlightKey(50);
   } else if (k == 51){
     hat1.start('+0.05');
     changeInstrumentColor("drums");
+    highlightKey(51);
   } else if (k == 52){
     hat2.start('+0.05');
     changeInstrumentColor("drums");
+    highlightKey(52);
   } else if (k == 53){
     shaker1.start('+0.05');
     changeInstrumentColor("drums");
+    highlightKey(53);
   } else if (k == 54){
     shaker2.start('+0.05');
     changeInstrumentColor("drums");
+    highlightKey(54);
   }
 
   //map keys to vox samples
   if (k == 56){
     scrubs1.start('+0.05');
     changeInstrumentColor("vox");
+    highlightKey(56);
   } else if (k == 57){
     scrubs2.start('+0.05');
     changeInstrumentColor("vox");
+    highlightKey(57);
   } else if (k == 48){
     scrubs3.start('+0.05');
     changeInstrumentColor("vox");
+    highlightKey(48);
   } else if (k == 173){
     scrubs4.start('+0.05');
     changeInstrumentColor("vox");
+    highlightKey(173);
   } else if (k == 61){
     scrubs5.start('+0.05');
     changeInstrumentColor("vox");
+    highlightKey(61);
   }
 
   //map keys to chord samples
   if (k == 188){
     chord1a.start('+0.05');
     changeInstrumentColor("chords");
+    highlightKey(188);
   } else if (k == 190){
     chord1b.start('+0.05');
     changeInstrumentColor("chords");
+    highlightKey(190);
   } else if (k == 191){
     chord2a.start('+0.05');
     changeInstrumentColor("chords");
+    highlightKey(191);
   } else if (k == 222){
     chord2b.start('+0.05');
     changeInstrumentColor("chords");
+    highlightKey(222);
   } else if (k == 219){
     chord2c.start('+0.05');
     changeInstrumentColor("chords");
+    highlightKey(219);
   } else if (k == 221){
     chord2d.start('+0.05');
     changeInstrumentColor("chords");
+    highlightKey(221);
   } else if (k == 76){
     chord3a.start('+0.05');
     changeInstrumentColor("chords");
+    highlightKey(76);
   } else if (k == 186 || k == 59){
     chord3b.start('+0.05');
     changeInstrumentColor("chords");
+    highlightKey(186);
   }
 };
 
@@ -325,7 +367,6 @@ const playDrumSequence = () => {
   setTimeout(() => simulateKeyPress(51), 9875);
 
   setTimeout(() => simulateKeyPress(192), 10000);
-  // setTimeout(() => simulateKeyPress(51), 10000);
   setTimeout(() => simulateKeyPress(51), 10500);
   setTimeout(() => simulateKeyPress(49), 11000);
   setTimeout(() => simulateKeyPress(51), 11000);
@@ -402,7 +443,7 @@ const playChordSequence = () => {
   setTimeout(() => simulateKeyPress(190), 3500);
 
   setTimeout(() => simulateKeyPress(191), 4000);
-  setTimeout(() => simulateKeyPress(191), 5750);
+  setTimeout(() => simulateKeyPress(191), 5500);
 
   setTimeout(() => simulateKeyPress(222), 6000);
 
@@ -414,7 +455,7 @@ const playChordSequence = () => {
   setTimeout(() => simulateKeyPress(186), 11500);
 
   setTimeout(() => simulateKeyPress(219), 12000);
-  setTimeout(() => simulateKeyPress(219), 13750);
+  setTimeout(() => simulateKeyPress(219), 13500);
 
   setTimeout(() => simulateKeyPress(221), 14000);
   setTimeout(() => simulateKeyPress(221), 15000);
@@ -451,12 +492,12 @@ const changeButton = () => {
   if (playing[playing]) {
     window.clearInterval(interval);
     playing[playing] = false;
-    $("button").text("Play example sequence");
+    $("button").text("Play Example Sequence");
   } else {
     playSequence();
     interval = setInterval(playSequence, 16000);
     playing[playing] = true;
-    $("button").text("Stop at end of loop");
+    $("button").text("Stop at End of Loop");
   }
 };
 
