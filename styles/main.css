@@ -65,6 +65,10 @@ button:hover {
 	/* color: lightgrey; */
 }
 
+button:focus {
+	outline: 0;
+}
+
 
 
 

@@ -192,11 +192,11 @@ const playKeySampler = (e) => {
     scrubs3.start('+0.05');
     changeInstrumentColor("vox");
     highlightKey(48);
-  } else if (k == 173){
+  } else if (k == 173 || k == 189){
     scrubs4.start('+0.05');
     changeInstrumentColor("vox");
     highlightKey(173);
-  } else if (k == 61){
+  } else if (k == 61 || k == 189){
     scrubs5.start('+0.05');
     changeInstrumentColor("vox");
     highlightKey(61);
