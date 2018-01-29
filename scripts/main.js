@@ -196,7 +196,7 @@ const playKeySampler = (e) => {
     scrubs4.start('+0.05');
     changeInstrumentColor("vox");
     highlightKey(173);
-  } else if (k == 61 || k == 189){
+  } else if (k == 61 || k == 187){
     scrubs5.start('+0.05');
     changeInstrumentColor("vox");
     highlightKey(61);
