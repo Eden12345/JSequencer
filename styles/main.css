@@ -127,10 +127,24 @@ section {
 	margin-top: 30px;
 }
 
+.instrument-header {
+	margin-bottom: 10px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .instrument-title {
   padding: 15px;
 
+	display: inline-block;
+
   text-align: center;
+}
+
+.stop {
+	height: 43px;
 }
 
 .instrument {

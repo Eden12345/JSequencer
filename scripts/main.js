@@ -1,8 +1,5 @@
 import Tone from "Tone";
 
-const playing = {playing: false};
-let interval;
-
 const colors = ["yellow", "green", "blue", "purple"];
 
 const genRandInt = (max) => {
@@ -381,6 +378,9 @@ const playDrumSequence = () => {
 };
 
 const clearDrumTimeouts = () => {
+  window.clearInterval(drumInterval);
+
+
   window.clearTimeout(drumTimeout1);
   window.clearTimeout(drumTimeout2);
   window.clearTimeout(drumTimeout3);
@@ -523,6 +523,9 @@ const playSynthSequence = () => {
 };
 
 const clearSynthTimeouts = () => {
+  window.clearInterval(synthInterval);
+
+
   window.clearTimeout(synthTimeout1);
   window.clearTimeout(synthTimeout2);
   window.clearTimeout(synthTimeout3);
@@ -607,6 +610,9 @@ const playChordSequence = () => {
 };
 
 const clearChordTimeouts = () => {
+  window.clearInterval(chordInterval);
+
+
   window.clearTimeout(chordTimeout1);
   window.clearTimeout(chordTimeout2);
   window.clearTimeout(chordTimeout3);
@@ -667,6 +673,9 @@ const playVoxSequence = () => {
 };
 
 const clearVoxTimeouts = () => {
+  window.clearInterval(voxInterval);
+
+
   window.clearTimeout(voxTimeout1);
 
   window.clearTimeout(voxTimeout2);
@@ -687,11 +696,22 @@ const clearVoxTimeouts = () => {
 
 
 
+const playing = {playing: false};
+let drumInterval;
+let synthInterval;
+let chordInterval;
+let voxInterval;
+
 const playSequence = () => {
   playDrumSequence();
   playSynthSequence();
   playChordSequence();
   playVoxSequence();
+
+  drumInterval = setInterval(playDrumSequence, 16000);
+  synthInterval = setInterval(playSynthSequence, 16000);
+  chordInterval = setInterval(playChordSequence, 16000);
+  voxInterval = setInterval(playVoxSequence, 16000);
 };
 
 const clearAllTimeouts = () => {
@@ -701,19 +721,30 @@ const clearAllTimeouts = () => {
   clearVoxTimeouts();
 };
 
+// The intervals are taken care of in the above function
+
+// const clearAllIntervals = () => {
+//   window.clearInterval(drumInterval);
+//   window.clearInterval(synthInterval);
+//   window.clearInterval(chordInterval);
+//   window.clearInterval(voxInterval);
+// };
+
 const changeButton = () => {
   if (playing[playing]) {
-    window.clearInterval(interval);
     clearAllTimeouts();
     playing[playing] = false;
-    $("button").text("Play Example Sequence");
+    $(".play").text("Play Example Sequence");
   } else {
     playSequence();
-    interval = setInterval(playSequence, 16000);
     playing[playing] = true;
-    $("button").text("Stop Playing Sequence");
+    $(".play").text("Stop Playing Sequence");
   }
 };
 
-$("button").click(changeButton);
-// $("button").click(playSequence);
+$(".play").click(changeButton);
+
+$(".stop-drums").click(clearDrumTimeouts);
+$(".stop-synth").click(clearSynthTimeouts);
+$(".stop-chords").click(clearChordTimeouts);
+$(".stop-vox").click(clearVoxTimeouts);
