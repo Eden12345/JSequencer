@@ -247,166 +247,321 @@ const simulateKeyPress = (keyCode) => {
   // jQuery.event.trigger({ type : 'keyup', which : keyCode });
 };
 
+
+
+// DRUM TIMEOUTS START
+
+const drumTimeout1 = () => {setTimeout(() => simulateKeyPress(192), 0);};
+const drumTimeout2 = () => {setTimeout(() => simulateKeyPress(51), 0);};
+const drumTimeout3 = () => {setTimeout(() => simulateKeyPress(51), 875);};
+const drumTimeout4 = () => {setTimeout(() => simulateKeyPress(49), 1000);};
+const drumTimeout5 = () => {setTimeout(() => simulateKeyPress(51), 1000);};
+const drumTimeout6 = () => {setTimeout(() => simulateKeyPress(51), 1500);};
+const drumTimeout7 = () => {setTimeout(() => simulateKeyPress(51), 1875);};
+
+const drumTimeout8 = () => {setTimeout(() => simulateKeyPress(192), 2000);};
+const drumTimeout9 = () => {setTimeout(() => simulateKeyPress(51), 2500);};
+const drumTimeout10 = () => {setTimeout(() => simulateKeyPress(49), 3000);};
+const drumTimeout11 = () => {setTimeout(() => simulateKeyPress(51), 3000);};
+const drumTimeout12 = () => {setTimeout(() => simulateKeyPress(51), 3500);};
+const drumTimeout13 = () => {setTimeout(() => simulateKeyPress(49), 3875);};
+
+const drumTimeout14 = () => {setTimeout(() => simulateKeyPress(192), 4000);};
+const drumTimeout15 = () => {setTimeout(() => simulateKeyPress(51), 4000);};
+const drumTimeout16 = () => {setTimeout(() => simulateKeyPress(192), 4250);};
+const drumTimeout17 = () => {setTimeout(() => simulateKeyPress(51), 4500);};
+const drumTimeout18 = () => {setTimeout(() => simulateKeyPress(51), 4875);};
+const drumTimeout19 = () => {setTimeout(() => simulateKeyPress(49), 5000);};
+const drumTimeout20 = () => {setTimeout(() => simulateKeyPress(51), 5000);};
+const drumTimeout21 = () => {setTimeout(() => simulateKeyPress(51), 5500);};
+
+const drumTimeout22 = () => {setTimeout(() => simulateKeyPress(192), 5875);};
+const drumTimeout23 = () => {setTimeout(() => simulateKeyPress(192), 6000);};
+const drumTimeout24 = () => {setTimeout(() => simulateKeyPress(51), 6000);};
+const drumTimeout25 = () => {setTimeout(() => simulateKeyPress(51), 6500);};
+const drumTimeout26 = () => {setTimeout(() => simulateKeyPress(49), 7000);};
+const drumTimeout27 = () => {setTimeout(() => simulateKeyPress(51), 7000);};
+const drumTimeout28 = () => {setTimeout(() => simulateKeyPress(51), 7500);};
+const drumTimeout29 = () => {setTimeout(() => simulateKeyPress(49), 7875);};
+
+const drumTimeout30 = () => {setTimeout(() => simulateKeyPress(192), 8000);};
+const drumTimeout31 = () => {setTimeout(() => simulateKeyPress(51), 8000);};
+const drumTimeout32 = () => {setTimeout(() => simulateKeyPress(51), 8500);};
+const drumTimeout33 = () => {setTimeout(() => simulateKeyPress(51), 8875);};
+const drumTimeout34 = () => {setTimeout(() => simulateKeyPress(49), 9000);};
+const drumTimeout35 = () => {setTimeout(() => simulateKeyPress(51), 9000);};
+const drumTimeout36 = () => {setTimeout(() => simulateKeyPress(51), 9500);};
+const drumTimeout37 = () => {setTimeout(() => simulateKeyPress(51), 9875);};
+
+const drumTimeout38 = () => {setTimeout(() => simulateKeyPress(192), 10000);};
+const drumTimeout39 = () => {setTimeout(() => simulateKeyPress(51), 10500);};
+const drumTimeout40 = () => {setTimeout(() => simulateKeyPress(49), 11000);};
+const drumTimeout41 = () => {setTimeout(() => simulateKeyPress(51), 11000);};
+const drumTimeout42 = () => {setTimeout(() => simulateKeyPress(51), 11500);};
+const drumTimeout43 = () => {setTimeout(() => simulateKeyPress(49), 11875);};
+
+const drumTimeout44 = () => {setTimeout(() => simulateKeyPress(192), 12000);};
+const drumTimeout45 = () => {setTimeout(() => simulateKeyPress(51), 12000);};
+const drumTimeout46 = () => {setTimeout(() => simulateKeyPress(192), 12250);};
+const drumTimeout47 = () => {setTimeout(() => simulateKeyPress(51), 12500);};
+const drumTimeout48 = () => {setTimeout(() => simulateKeyPress(51), 12875);};
+const drumTimeout49 = () => {setTimeout(() => simulateKeyPress(49), 13000);};
+const drumTimeout50 = () => {setTimeout(() => simulateKeyPress(51), 13000);};
+const drumTimeout51 = () => {setTimeout(() => simulateKeyPress(51), 13500);};
+
+const drumTimeout52 = () => {setTimeout(() => simulateKeyPress(192), 13875);};
+const drumTimeout53 = () => {setTimeout(() => simulateKeyPress(192), 14000);};
+const drumTimeout54 = () => {setTimeout(() => simulateKeyPress(51), 14000);};
+const drumTimeout55 = () => {setTimeout(() => simulateKeyPress(51), 14500);};
+const drumTimeout56 = () => {setTimeout(() => simulateKeyPress(49), 15000);};
+const drumTimeout57 = () => {setTimeout(() => simulateKeyPress(51), 15000);};
+const drumTimeout58 = () => {setTimeout(() => simulateKeyPress(51), 15500);};
+const drumTimeout59 = () => {setTimeout(() => simulateKeyPress(49), 15875);};
+
 const playDrumSequence = () => {
-  simulateKeyPress(192);
-  simulateKeyPress(51);
-  // setTimeout(() => simulateKeyPress(51), 500);
-  setTimeout(() => simulateKeyPress(51), 875);
-  setTimeout(() => simulateKeyPress(49), 1000);
-  setTimeout(() => simulateKeyPress(51), 1000);
-  setTimeout(() => simulateKeyPress(51), 1500);
-  setTimeout(() => simulateKeyPress(51), 1875);
-  // setTimeout(() => simulateKeyPress(49), 1875);
+  drumTimeout1();
+  drumTimeout2();
+  drumTimeout3();
+  drumTimeout4();
+  drumTimeout5();
+  drumTimeout6();
+  drumTimeout7();
 
-  setTimeout(() => simulateKeyPress(192), 2000);
-  // setTimeout(() => simulateKeyPress(51), 2000);
-  setTimeout(() => simulateKeyPress(51), 2500);
-  setTimeout(() => simulateKeyPress(49), 3000);
-  setTimeout(() => simulateKeyPress(51), 3000);
-  setTimeout(() => simulateKeyPress(51), 3500);
-  setTimeout(() => simulateKeyPress(49), 3875);
+  drumTimeout8();
+  drumTimeout9();
+  drumTimeout10();
+  drumTimeout11();
+  drumTimeout12();
+  drumTimeout13();
 
-  setTimeout(() => simulateKeyPress(192), 4000);
-  setTimeout(() => simulateKeyPress(51), 4000);
-  setTimeout(() => simulateKeyPress(192), 4250);
-  setTimeout(() => simulateKeyPress(51), 4500);
-  setTimeout(() => simulateKeyPress(51), 4875);
-  setTimeout(() => simulateKeyPress(49), 5000);
-  setTimeout(() => simulateKeyPress(51), 5000);
-  setTimeout(() => simulateKeyPress(51), 5500);
+  drumTimeout14();
+  drumTimeout15();
+  drumTimeout16();
+  drumTimeout17();
+  drumTimeout18();
+  drumTimeout19();
+  drumTimeout20();
+  drumTimeout21();
 
-  setTimeout(() => simulateKeyPress(192), 5875);
-  setTimeout(() => simulateKeyPress(192), 6000);
-  setTimeout(() => simulateKeyPress(51), 6000);
-  setTimeout(() => simulateKeyPress(51), 6500);
-  setTimeout(() => simulateKeyPress(49), 7000);
-  setTimeout(() => simulateKeyPress(51), 7000);
-  setTimeout(() => simulateKeyPress(51), 7500);
-  setTimeout(() => simulateKeyPress(49), 7875);
+  drumTimeout22();
+  drumTimeout23();
+  drumTimeout24();
+  drumTimeout25();
+  drumTimeout26();
+  drumTimeout27();
+  drumTimeout28();
+  drumTimeout29();
 
-  setTimeout(() => simulateKeyPress(192), 8000);
-  setTimeout(() => simulateKeyPress(51), 8000);
-  setTimeout(() => simulateKeyPress(51), 8500);
-  setTimeout(() => simulateKeyPress(51), 8875);
-  setTimeout(() => simulateKeyPress(49), 9000);
-  setTimeout(() => simulateKeyPress(51), 9000);
-  setTimeout(() => simulateKeyPress(51), 9500);
-  setTimeout(() => simulateKeyPress(51), 9875);
+  drumTimeout30();
+  drumTimeout31();
+  drumTimeout32();
+  drumTimeout33();
+  drumTimeout34();
+  drumTimeout35();
+  drumTimeout36();
+  drumTimeout37();
 
-  setTimeout(() => simulateKeyPress(192), 10000);
-  setTimeout(() => simulateKeyPress(51), 10500);
-  setTimeout(() => simulateKeyPress(49), 11000);
-  setTimeout(() => simulateKeyPress(51), 11000);
-  setTimeout(() => simulateKeyPress(51), 11500);
-  setTimeout(() => simulateKeyPress(49), 11875);
+  drumTimeout38();
+  drumTimeout39();
+  drumTimeout40();
+  drumTimeout41();
+  drumTimeout42();
+  drumTimeout43();
 
-  setTimeout(() => simulateKeyPress(192), 12000);
-  setTimeout(() => simulateKeyPress(51), 12000);
-  setTimeout(() => simulateKeyPress(192), 12250);
-  setTimeout(() => simulateKeyPress(51), 12500);
-  setTimeout(() => simulateKeyPress(51), 12875);
-  setTimeout(() => simulateKeyPress(49), 13000);
-  setTimeout(() => simulateKeyPress(51), 13000);
-  setTimeout(() => simulateKeyPress(51), 13500);
+  drumTimeout44();
+  drumTimeout45();
+  drumTimeout46();
+  drumTimeout47();
+  drumTimeout48();
+  drumTimeout49();
+  drumTimeout50();
+  drumTimeout51();
 
-  setTimeout(() => simulateKeyPress(192), 13875);
-  setTimeout(() => simulateKeyPress(192), 14000);
-  setTimeout(() => simulateKeyPress(51), 14000);
-  setTimeout(() => simulateKeyPress(51), 14500);
-  setTimeout(() => simulateKeyPress(49), 15000);
-  setTimeout(() => simulateKeyPress(51), 15000);
-  setTimeout(() => simulateKeyPress(51), 15500);
-  setTimeout(() => simulateKeyPress(49), 15875);
+  drumTimeout52();
+  drumTimeout53();
+  drumTimeout54();
+  drumTimeout55();
+  drumTimeout56();
+  drumTimeout57();
+  drumTimeout58();
+  drumTimeout59();
 };
+
+
+
+// SYNTH TIMEOUTS START
+
+//bass keys: 65, 83, 68, 70, 71, 72
+
+//descending keys: 66, 86, 67, 88, 90, 72
+
+const synthTimeout1 = () => {setTimeout(() => simulateKeyPress(70), 0);};
+const synthTimeout2 = () => {setTimeout(() => simulateKeyPress(66), 500);};
+const synthTimeout3 = () => {setTimeout(() => simulateKeyPress(86), 1500);};
+
+const synthTimeout4 = () => {setTimeout(() => simulateKeyPress(83), 1825);};
+const synthTimeout5 = () => {setTimeout(() => simulateKeyPress(67), 2500);};
+const synthTimeout6 = () => {setTimeout(() => simulateKeyPress(88), 3500);};
+
+const synthTimeout7 = () => {setTimeout(() => simulateKeyPress(71), 4000);};
+const synthTimeout8 = () => {setTimeout(() => simulateKeyPress(86), 4500);};
+const synthTimeout9 = () => {setTimeout(() => simulateKeyPress(67), 5500);};
+
+const synthTimeout10 = () => {setTimeout(() => simulateKeyPress(68), 5825);};
+const synthTimeout11 = () => {setTimeout(() => simulateKeyPress(68), 6000);};
+const synthTimeout12 = () => {setTimeout(() => simulateKeyPress(88), 6500);};
+const synthTimeout13 = () => {setTimeout(() => simulateKeyPress(90), 7500);};
+
+const synthTimeout14 = () => {setTimeout(() => simulateKeyPress(70), 8000);};
+const synthTimeout15 = () => {setTimeout(() => simulateKeyPress(71), 8325);};
+const synthTimeout16 = () => {setTimeout(() => simulateKeyPress(66), 8500);};
+const synthTimeout17 = () => {setTimeout(() => simulateKeyPress(86), 9500);};
+
+const synthTimeout18 = () => {setTimeout(() => simulateKeyPress(83), 10000);};
+const synthTimeout19 = () => {setTimeout(() => simulateKeyPress(67), 10500);};
+const synthTimeout20 = () => {setTimeout(() => simulateKeyPress(88), 11500);};
+
+const synthTimeout21 = () => {setTimeout(() => simulateKeyPress(71), 11825);};
+const synthTimeout22 = () => {setTimeout(() => simulateKeyPress(71), 12000);};
+const synthTimeout23 = () => {setTimeout(() => simulateKeyPress(90), 12500);};
+const synthTimeout24 = () => {setTimeout(() => simulateKeyPress(72), 13500);};
+
+const synthTimeout25 = () => {setTimeout(() => simulateKeyPress(68), 13825);};
+const synthTimeout26 = () => {setTimeout(() => simulateKeyPress(90), 14500);};
+const synthTimeout27 = () => {setTimeout(() => simulateKeyPress(88), 15500);};
 
 const playSynthSequence = () => {
-  //bass keys: 65, 83, 68, 70, 71, 72
+  synthTimeout1();
+  synthTimeout2();
+  synthTimeout3();
 
-  //descending keys: 66, 86, 67, 88, 90, 72
+  synthTimeout4();
+  synthTimeout5();
+  synthTimeout6();
 
-  simulateKeyPress(70);
-  setTimeout(() => simulateKeyPress(66), 500);
-  setTimeout(() => simulateKeyPress(86), 1500);
+  synthTimeout7();
+  synthTimeout8();
+  synthTimeout9();
 
-  setTimeout(() => simulateKeyPress(83), 1825);
-  setTimeout(() => simulateKeyPress(67), 2500);
-  setTimeout(() => simulateKeyPress(88), 3500);
+  synthTimeout10();
+  synthTimeout11();
+  synthTimeout12();
+  synthTimeout13();
 
-  setTimeout(() => simulateKeyPress(71), 4000);
-  setTimeout(() => simulateKeyPress(86), 4500);
-  setTimeout(() => simulateKeyPress(67), 5500);
+  synthTimeout14();
+  synthTimeout15();
+  synthTimeout16();
+  synthTimeout17();
 
-  setTimeout(() => simulateKeyPress(68), 5825);
-  setTimeout(() => simulateKeyPress(68), 6000);
-  setTimeout(() => simulateKeyPress(88), 6500);
-  setTimeout(() => simulateKeyPress(90), 7500);
+  synthTimeout18();
+  synthTimeout19();
+  synthTimeout20();
 
+  synthTimeout21();
+  synthTimeout22();
+  synthTimeout23();
+  synthTimeout24();
 
-  setTimeout(() => simulateKeyPress(70), 8000);
-  setTimeout(() => simulateKeyPress(71), 8325);
-  setTimeout(() => simulateKeyPress(66), 8500);
-  setTimeout(() => simulateKeyPress(86), 9500);
-
-  setTimeout(() => simulateKeyPress(83), 10000);
-  setTimeout(() => simulateKeyPress(67), 10500);
-  setTimeout(() => simulateKeyPress(88), 11500);
-
-  setTimeout(() => simulateKeyPress(71), 11825);
-  setTimeout(() => simulateKeyPress(71), 12000);
-  setTimeout(() => simulateKeyPress(90), 12500);
-  setTimeout(() => simulateKeyPress(72), 13500);
-
-  setTimeout(() => simulateKeyPress(68), 13825);
-  setTimeout(() => simulateKeyPress(90), 14500);
-  setTimeout(() => simulateKeyPress(88), 15500);
+  synthTimeout25();
+  synthTimeout26();
+  synthTimeout27();
 };
+
+
+
+// CHORD TIMEOUTS START
+
+const chordTimeout1 = () => {setTimeout(() => simulateKeyPress(188), 0);};
+const chordTimeout2 = () => {setTimeout(() => simulateKeyPress(76), 750);};
+const chordTimeout3 = () => {setTimeout(() => simulateKeyPress(188), 1500);};
+
+const chordTimeout4 = () => {setTimeout(() => simulateKeyPress(190), 2000);};
+const chordTimeout5 = () => {setTimeout(() => simulateKeyPress(190), 3500);};
+
+const chordTimeout6 = () => {setTimeout(() => simulateKeyPress(191), 4000);};
+const chordTimeout7 = () => {setTimeout(() => simulateKeyPress(191), 5500);};
+
+const chordTimeout8 = () => {setTimeout(() => simulateKeyPress(222), 6000);};
+
+const chordTimeout9 = () => {setTimeout(() => simulateKeyPress(188), 8000);};
+const chordTimeout10 = () => {setTimeout(() => simulateKeyPress(76), 8750);};
+
+const chordTimeout11 = () => {setTimeout(() => simulateKeyPress(186), 10000);};
+const chordTimeout12 = () => {setTimeout(() => simulateKeyPress(186), 11500);};
+
+const chordTimeout13 = () => {setTimeout(() => simulateKeyPress(219), 12000);};
+const chordTimeout14 = () => {setTimeout(() => simulateKeyPress(219), 13500);};
+
+const chordTimeout15 = () => {setTimeout(() => simulateKeyPress(221), 14000);};
+const chordTimeout16 = () => {setTimeout(() => simulateKeyPress(221), 15000);};
 
 const playChordSequence = () => {
-  simulateKeyPress(188);
-  setTimeout(() => simulateKeyPress(76), 750);
-  setTimeout(() => simulateKeyPress(188), 1500);
+  chordTimeout1();
+  chordTimeout2();
+  chordTimeout3();
 
-  setTimeout(() => simulateKeyPress(190), 2000);
-  setTimeout(() => simulateKeyPress(190), 3500);
+  chordTimeout4();
+  chordTimeout5();
 
-  setTimeout(() => simulateKeyPress(191), 4000);
-  setTimeout(() => simulateKeyPress(191), 5500);
+  chordTimeout6();
+  chordTimeout7();
 
-  setTimeout(() => simulateKeyPress(222), 6000);
+  chordTimeout8();
 
+  chordTimeout9();
+  chordTimeout10();
 
-  setTimeout(() => simulateKeyPress(188), 8000);
-  setTimeout(() => simulateKeyPress(76), 8750);
+  chordTimeout11();
+  chordTimeout12();
 
-  setTimeout(() => simulateKeyPress(186), 10000);
-  setTimeout(() => simulateKeyPress(186), 11500);
+  chordTimeout13();
+  chordTimeout14();
 
-  setTimeout(() => simulateKeyPress(219), 12000);
-  setTimeout(() => simulateKeyPress(219), 13500);
-
-  setTimeout(() => simulateKeyPress(221), 14000);
-  setTimeout(() => simulateKeyPress(221), 15000);
+  chordTimeout15();
+  chordTimeout16();
 };
+
+
+
+// VOX TIMEOUTS START
+
+const voxTimeout1 = () => {setTimeout(() => simulateKeyPress(56), 0);};
+
+const voxTimeout2 = () => {setTimeout(() => simulateKeyPress(48), 4000);};
+
+const voxTimeout3 = () => {setTimeout(() => simulateKeyPress(48), 5500);};
+const voxTimeout4 = () => {setTimeout(() => simulateKeyPress(48), 6000);};
+
+const voxTimeout5 = () => {setTimeout(() => simulateKeyPress(56), 8000);};
+
+const voxTimeout6 = () => {setTimeout(() => simulateKeyPress(48), 12000);};
+
+const voxTimeout7 = () => {setTimeout(() => simulateKeyPress(48), 13500);};
+const voxTimeout8 = () => {setTimeout(() => simulateKeyPress(48), 14000);};
+const voxTimeout9 = () => {setTimeout(() => simulateKeyPress(173), 14000);};
+
+const voxTimeout10 = () => {setTimeout(() => simulateKeyPress(57), 15050);};
+
 
 const playVoxSequence = () => {
-  simulateKeyPress(56);
+  voxTimeout1();
 
-  setTimeout(() => simulateKeyPress(48), 4000);
+  voxTimeout2();
 
-  setTimeout(() => simulateKeyPress(48), 5500);
-  setTimeout(() => simulateKeyPress(48), 6000);
-  // setTimeout(() => simulateKeyPress(173), 6000);
+  voxTimeout3();
+  voxTimeout4();
 
-  setTimeout(() => simulateKeyPress(56), 8000);
+  voxTimeout5();
 
-  setTimeout(() => simulateKeyPress(48), 12000);
+  voxTimeout6();
 
-  setTimeout(() => simulateKeyPress(48), 13500);
-  setTimeout(() => simulateKeyPress(48), 14000);
-  setTimeout(() => simulateKeyPress(173), 14000);
+  voxTimeout7();
+  voxTimeout8();
+  voxTimeout9();
 
-  setTimeout(() => simulateKeyPress(57), 15050);
+  voxTimeout10();
 };
+
 
 const playSequence = () => {
   playDrumSequence();
