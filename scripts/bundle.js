@@ -579,10 +579,10 @@ const playSynthSequence = () => {
   synthTimeout14 = setTimeout(() => simulateKeyPress(70), 8000);
   synthTimeout15 = setTimeout(() => simulateKeyPress(71), 8325);
   synthTimeout16 = setTimeout(() => simulateKeyPress(66), 8500);
-  synthTimeout17 = setTimeout(() => simulateKeyPress(86), 9500);
+  synthTimeout17 = setTimeout(() => simulateKeyPress(67), 9500);
 
   synthTimeout18 = setTimeout(() => simulateKeyPress(83), 10000);
-  synthTimeout19 = setTimeout(() => simulateKeyPress(67), 10500);
+  synthTimeout19 = setTimeout(() => simulateKeyPress(86), 10500);
   synthTimeout20 = setTimeout(() => simulateKeyPress(88), 11500);
 
   synthTimeout21 = setTimeout(() => simulateKeyPress(71), 11825);
