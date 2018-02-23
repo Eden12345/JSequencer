@@ -16,5 +16,5 @@ Using jQuery, I added a simple visual effect to indicate to the user whenever ke
 
 ## Upcoming Changes
 
-* Add sequencer -- using the soundbanks in the audio folder and the Tone.js Player classes, a sequencer page will be added to the project to allow one player to create an a layered, looped sequence
-* Refactor with DOMinateJS -- the entire project will be refactored to use my own custom DOM manipulation library rather than jQuery
+  * Add sequencer -- using the soundbanks in the audio folder and the Tone.js Player classes, a sequencer page will be added to the project to allow one player to create an a layered, looped sequence
+  * Refactor with DOMinateJS -- the entire project will be refactored to use my own custom DOM manipulation library rather than jQuery
