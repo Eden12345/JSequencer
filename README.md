@@ -12,6 +12,7 @@ Using jQuery, I added a simple visual effect to indicate to the user whenever ke
 ![screencap](https://github.com/Eden12345/JamSync/blob/master/assets/screencap.png)
 
 
-## Planned Features
+## Upcoming Changes
 
-I will be building off of the sound banks I used and the Tone.js Player classes to create a sequencer that will allow one player to create an a layered, looped sequence. I will also be refactoring the entire project so that I use my own custom DOM manipulation library rather than jQuery.
+* I will be building off of the sound banks I used and the Tone.js Player classes to create a sequencer that will allow one player to create an a layered, looped sequence
+* I will also be refactoring the entire project so that I use my own custom DOM manipulation library rather than jQuery
