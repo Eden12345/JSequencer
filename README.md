@@ -1,3 +1,5 @@
+## App Description
+
 JamSync is a music application that maps four digital instruments to the keyboard to allow multiple people to improvise synchronously on the same keyboard from a web browser.
 
 [Live Demo](https://eden12345.github.io/JamSync/)
@@ -7,5 +9,7 @@ I utilized the Tone.js library to create an oscillator through the Web Audio API
 Using jQuery, I added a simple visual effect to indicate to the user whenever keypress are triggering an action on a specific instrument.
 
 ![screencap](https://github.com/Eden12345/JSequencer/blob/master/assets/screencap.png)
+
+## Planned Features
 
 I will be building off of the sound banks I used and the Tone.js Player classes to create a sequencer that will allow one player to create an a layered, looped sequence. I will also be refactoring the entire project so that I use my own custom DOM manipulation library rather than jQuery.
