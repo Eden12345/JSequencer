@@ -8,7 +8,9 @@ I utilized the Tone.js library to create an oscillator through the Web Audio API
 
 Using jQuery, I added a simple visual effect to indicate to the user whenever keypress are triggering an action on a specific instrument.
 
+
 ![screencap](https://github.com/Eden12345/JamSync/blob/master/assets/screencap.png)
+
 
 ## Planned Features
 
