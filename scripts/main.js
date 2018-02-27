@@ -696,7 +696,8 @@ const clearVoxTimeouts = () => {
 
 
 
-const playing = {playing: false};
+let playing = false;
+
 let drumInterval;
 let synthInterval;
 let chordInterval;
@@ -712,14 +713,19 @@ const playSequence = () => {
   synthInterval = setInterval(playSynthSequence, 16000);
   chordInterval = setInterval(playChordSequence, 16000);
   voxInterval = setInterval(playVoxSequence, 16000);
+
+  $(".stop-drums").removeClass("hidden");
+  $(".stop-synth").removeClass("hidden");
+  $(".stop-chords").removeClass("hidden");
+  $(".stop-vox").removeClass("hidden");
 };
 
-const clearAllTimeouts = () => {
-  clearDrumTimeouts();
-  clearSynthTimeouts();
-  clearChordTimeouts();
-  clearVoxTimeouts();
-};
+// const clearAllTimeouts = () => {
+//   clearDrumTimeouts();
+//   clearSynthTimeouts();
+//   clearChordTimeouts();
+//   clearVoxTimeouts();
+// };
 
 // The intervals are taken care of in the above function
 
@@ -730,21 +736,60 @@ const clearAllTimeouts = () => {
 //   window.clearInterval(voxInterval);
 // };
 
+const checkButtons = () => {
+  if (($(".stop-drums").hasClass("hidden") && $(".stop-synth").hasClass("hidden")) &&
+      ($(".stop-chords").hasClass("hidden") && $(".stop-vox").hasClass("hidden"))) {
+    playing = false;
+    $(".play").text("Play Demo Sequence");
+  }
+};
+
+const stopDrums = () => {
+  clearDrumTimeouts();
+  $(".stop-drums").addClass("hidden");
+  checkButtons();
+};
+
+const stopSynth = () => {
+  clearSynthTimeouts();
+  $(".stop-synth").addClass("hidden");
+  checkButtons();
+};
+
+const stopChords = () => {
+  clearChordTimeouts();
+  $(".stop-chords").addClass("hidden");
+  checkButtons();
+};
+
+const stopVox = () => {
+  clearVoxTimeouts();
+  $(".stop-vox").addClass("hidden");
+  checkButtons();
+};
+
+const stopAll = () => {
+  stopDrums();
+  stopSynth();
+  stopChords();
+  stopVox();
+};
+
 const changeButton = () => {
-  if (playing[playing]) {
-    clearAllTimeouts();
-    playing[playing] = false;
-    $(".play").text("Play Example Sequence");
+  if (playing) {
+    stopAll();
+    playing = false;
+    $(".play").text("Play Demo Sequence");
   } else {
     playSequence();
-    playing[playing] = true;
+    playing = true;
     $(".play").text("Stop Playing Sequence");
   }
 };
 
 $(".play").click(changeButton);
 
-$(".stop-drums").click(clearDrumTimeouts);
-$(".stop-synth").click(clearSynthTimeouts);
-$(".stop-chords").click(clearChordTimeouts);
-$(".stop-vox").click(clearVoxTimeouts);
+$(".stop-drums").click(stopDrums);
+$(".stop-synth").click(stopSynth);
+$(".stop-chords").click(stopChords);
+$(".stop-vox").click(stopVox);
