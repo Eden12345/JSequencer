@@ -101,9 +101,9 @@ const playKeySynth = (e) => {
   }
 };
 
-window.addEventListener("keydown", playKeySynth, false);
+// window.addEventListener("keydown", playKeySynth, false);
 
-$('body').keydown(playKeySynth);
+$('#jamsync-body').keydown(playKeySynth);
 
 //load drum samples
 const kick = new Tone.Player({url: "samples/drums/kick.wav"}).toMaster();
@@ -235,9 +235,9 @@ const playKeySampler = (e) => {
   }
 };
 
-window.addEventListener("keydown", playKeySampler, false);
+// window.addEventListener("keydown", playKeySampler, false);
 
-$('body').keydown(playKeySampler);
+$('#jamsync-body').keydown(playKeySampler);
 
 const simulateKeyPress = (keyCode) => {
   jQuery.event.trigger({ type : 'keydown', which : keyCode });
