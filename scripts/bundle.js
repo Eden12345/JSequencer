@@ -23922,6 +23922,11 @@ class Player {
 
 
 class Grid {
+  constructor() {
+    this.toggleButton = this.toggleButton.bind(this);
+  }
+
+
   setup() {
     for (let i = 1; i <= 16; i++) {
       const beatId = "beat" + i;
@@ -23930,19 +23935,19 @@ class Grid {
       $(".synthesizer").append(`<ol class='synthesizer-beat ${beatId}'></ol>`);
 
       for (let i = 1; i <= 31; i++) {
-        const beatIdsoundId = beatId + "sound" + i;
+        const buttonId = beatId + "sound" + i; // The buttonId is the beatId + soundId
 
         if (i <= 11) {
           $(`.synthesizer-beat.${beatId}`)
-          .append(`<li class='sequencer-button' id=${beatIdsoundId}></li>`);
+          .append(`<li class='sequencer-button' id=${buttonId}></li>`);
         } else {
           $(`.sampler-beat.${beatId}`)
-          .append(`<li class='sequencer-button' id=${beatIdsoundId}></li>`);
+          .append(`<li class='sequencer-button' id=${buttonId}></li>`);
         }
       }
     }
 
-    $('.sequencer-button').click(toggleButton);
+    $('.sequencer-button').click(this.toggleButton);
   }
 
 
@@ -23961,18 +23966,6 @@ class Grid {
     $('.highlighted').removeClass('highlighted');
     $(`.${beatId}`).addClass('highlighted');
   }
-
-
-  // NOTE: The logic in this method could probably just be added as one
-  // line to the Sequencer's play method
-
-  checkButton(buttonId) {
-    if ($(`.${buttonId}`).hasClass('turned-on')) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }
 
 
@@ -23985,10 +23978,102 @@ class Sequencer {
     this.grid = new Grid();
     this.grid.setup();
     this.timeouts = {};
+
+    this.playOrStop = this.playOrStop.bind(this);
+    this.startPlaying = this.startPlaying.bind(this);
+    this.stopPlaying = this.stopPlaying.bind(this);
   }
 
 
+  splitter(buttonId, returnVal) {
+    const splitIds = buttonId.split("s");
+    const beatId = splitIds[0];
+    const soundId = "s" + splitIds[1];
+
+    if (returnVal === "beatId") {
+      return beatId;
+    } else if (returnVal === "soundId") {
+      return soundId;
+    }
+  }
+
+
+  bpm() {
+    const slider = $("#bpm-slider");
+	  return slider.value;
+  }
+
+
+  setupPlayButton() {
+    $(".play-stop-button").click(playOrStop);
+  }
+
+
+  playOrStop() {
+    if ($(".play-stop-button").hasClass("stopped")) {
+      this.startPlaying();
+    } else if ($(".play-stop-button").hasClass("playing")) {
+      this.stopPlaying();
+    }
+  }
+
+
+  startPlaying() {
+    $("#bpm-slider").prop("disabled", true);
+
+    const milsToAdd = 60000 / this.bpm();
+    let mils = 5;
+
+    for (let i = 1; i <= 16; i++) {
+      const beatId = "beat" + i;
+
+      this.timeouts[beatId] = setTimeout((beatId) => {
+        this.grid.highlightColumn(beatId);
+      }, mils);
+
+      for (let j = 1; j <= 31; j++) {
+        const buttonId = beatId + "sound" + j;
+
+        this.timeouts[buttonId] = setTimeout((buttonId) => {
+          this.triggerButton(buttonId);
+        }, mils);
+      }
+
+      mils += milsToAdd;
+    }
+
+    this.timeouts[loop] = setInterval(this.startPlaying, mils);
+  }
+
+
+  stopPlaying() {
+    $("#bpm-slider").prop("disabled", false);
+
+    for (let i = 1; i <= 16; i++) {
+      const beatId = "beat" + i;
+      clearTimeout(this.timeouts[beatId]);
+
+      for (let j = 1; j <= 31; j++) {
+        const buttonId = beatId + "sound" + j;
+        clearTimeout(this.timeouts[buttonId]);
+      }
+    }
+
+    clearInterval(this.timeouts[loop]);
+  }
+
+
+  triggerButton(buttonId) {
+    if ($(`.${buttonId}`).hasClass('turned-on')) {
+      const soundId = this.splitter(buttonId, "soundId");
+      this.player.playSound(soundId);
+    }
+  }
 }
+
+const seq = new Sequencer();
+
+debugger
 
 
 /***/ }),
