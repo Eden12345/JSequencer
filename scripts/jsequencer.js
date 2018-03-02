@@ -31,12 +31,6 @@ class Synthesizer {
 
 
 
-// NOTE: If anyone is looking at the following class constructor and thinking
-// there is a shorter way to write it out, there is. In that case, however,
-// I would have to name the files something uniform, making it more difficult
-// to sort through them and edit the files later down the line. Also, the
-// volumes of course have to be individually adjusted.
-
 class Sampler {
   constructor() {
     this.source = {
@@ -126,7 +120,7 @@ class Grid {
       $(".synthesizer").append(`<ol class='synthesizer-beat ${beatId}'></ol>`);
 
       for (let i = 1; i <= 31; i++) {
-        const buttonId = beatId + "sound" + i; // The buttonId is the beatId + soundId
+        const buttonId = beatId + "sound" + i;
 
         if (i <= 11) {
           $(`.synthesizer-beat.${beatId}`)
