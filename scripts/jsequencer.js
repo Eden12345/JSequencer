@@ -170,11 +170,12 @@ class Sequencer {
     this.grid.setup();
     this.timeouts = {};
 
-    this.setupPlayButton();
-
+    this.setupPlayButton = this.setupPlayButton.bind(this);
     this.playOrStop = this.playOrStop.bind(this);
     this.startPlaying = this.startPlaying.bind(this);
     this.stopPlaying = this.stopPlaying.bind(this);
+
+    this.setupPlayButton();
   }
 
 
@@ -197,8 +198,7 @@ class Sequencer {
 
 
   bpm() {
-    const slider = $("#bpm-slider");
-	  return slider.value;
+    return $("#bpm-slider").val();
   }
 
 
@@ -211,8 +211,9 @@ class Sequencer {
   }
 
 
-  startPlaying() {
+  startPlaying(looping = false) {
     $("#bpm-slider").prop("disabled", true);
+    $(".play-stop-button").removeClass("stopped").addClass("playing");
 
     const milsToAdd = 60000 / this.bpm();
     let mils = 5;
@@ -220,14 +221,14 @@ class Sequencer {
     for (let i = 1; i <= 16; i++) {
       const beatId = "beat" + i;
 
-      this.timeouts[beatId] = setTimeout((beatId) => {
+      this.timeouts[beatId] = setTimeout(() => {
         this.grid.highlightColumn(beatId);
       }, mils);
 
       for (let j = 1; j <= 31; j++) {
         const buttonId = beatId + "sound" + j;
 
-        this.timeouts[buttonId] = setTimeout((buttonId) => {
+        this.timeouts[buttonId] = setTimeout(() => {
           this.triggerButton(buttonId);
         }, mils);
       }
@@ -235,12 +236,15 @@ class Sequencer {
       mils += milsToAdd;
     }
 
-    this.timeouts[loop] = setInterval(this.startPlaying, mils);
+    if (looping === false) {
+      this.timeouts.loop = setInterval(() => this.startPlaying(true), mils);
+    }
   }
 
 
   stopPlaying() {
     $("#bpm-slider").prop("disabled", false);
+    $(".play-stop-button").removeClass("playing").addClass("stopped");
 
     for (let i = 1; i <= 16; i++) {
       const beatId = "beat" + i;
@@ -252,12 +256,12 @@ class Sequencer {
       }
     }
 
-    clearInterval(this.timeouts[loop]);
+    clearInterval(this.timeouts.loop);
   }
 
 
   triggerButton(buttonId) {
-    if ($(`.${buttonId}`).hasClass('turned-on')) {
+    if ($(`#${buttonId}`).hasClass('turned-on')) {
       const soundId = this.splitter(buttonId, "soundId");
       this.player.playSound(soundId);
     }
