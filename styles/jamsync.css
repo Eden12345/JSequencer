@@ -90,6 +90,20 @@ header {
   padding-top: 30px;
 }
 
+header a {
+	margin-right: 20px;
+
+  font-size: 20px;
+	text-decoration: none;
+	color: white;
+
+	cursor: pointer;
+}
+
+header a:focus {
+  outline: 0;
+}
+
 .description {
   margin: 20px;
   margin-left: 100px;
