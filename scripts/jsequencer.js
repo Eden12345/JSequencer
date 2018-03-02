@@ -113,6 +113,30 @@ class Player {
 
 
 class Grid {
+  setup() {
+    for (let i = 1; i <= 16; i++) {
+      const beatId = "beat" + i;
+
+      $(".sampler").append(`<ol class='sampler-beat ${beatId}'></ol>`);
+      $(".synthesizer").append(`<ol class='synthesizer-beat ${beatId}'></ol>`);
+
+      for (let i = 1; i <= 31; i++) {
+        const beatIdsoundId = beatId + "sound" + i;
+
+        if (i <= 11) {
+          $(`.synthesizer-beat.${beatId}`)
+          .append(`<li class='sequencer-button' id=${beatIdsoundId}></li>`);
+        } else {
+          $(`.sampler-beat.${beatId}`)
+          .append(`<li class='sequencer-button' id=${beatIdsoundId}></li>`);
+        }
+      }
+    }
+
+    $('.sequencer-button').click(toggleButton);
+  }
+
+
   toggleButton(event) {
     const button = $(event.target);
 
@@ -124,8 +148,9 @@ class Grid {
   }
 
 
-  setClickEvents() {
-    $('.sequencer-button').click(toggleButton);
+  highlightColumn(beatId) {
+    $('.highlighted').removeClass('highlighted');
+    $(`.${beatId}`).addClass('highlighted');
   }
 
 
@@ -146,5 +171,12 @@ class Grid {
 
 
 class Sequencer {
+  constructor() {
+    this.player = new Player();
+    this.grid = new Grid();
+    this.grid.setup();
+    this.timeouts = {};
+  }
+
 
 }
