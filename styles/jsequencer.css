@@ -129,46 +129,145 @@ main {
   align-items: center;
 }
 
+
+
+
+
 aside {
+  width: 200px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.play-stop-button {
-  width: 10px;
-  height: 10px;
+/* #bpm-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
 
-  background-color: white;
+#bpm-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+#bpm-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+} */
+
+#bpm-slider {
+  margin: 40px;
+}
+
+.play-stop-button {
+  margin: 40px;
+}
+
+.play-stop-button:hover {
+  cursor: pointer;
 }
 
 .stopped {
-  opacity: 0.2;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 25px solid white;
+  width: 0px;
+  height: 0px;
+
+  background-color: transparent;
+
+  opacity: 0.7;
 }
 
 .playing {
-  opacity: 1;
+  margin: 41px;
+  border: none;
+  border-radius: 3px;
+  width: 26px;
+  height: 26px;
+
+  background-color: white;
+
+  opacity: 0.7;
 }
 
+
+
+
+
 section {
-  width: 300px;
+  width: 700px;
   height: auto;
 
   display: flex;
 }
 
 .sequencer-button {
+  border: 2px solid pink;
+  border-radius: 3px;
   margin: 2px;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
 
+  opacity: .6;
+}
+
+.sequencer-button:hover {
+  cursor: pointer;
+}
+
+ol {
+  border-radius: 3px;
+}
+
+.highlighted {
   background-color: white;
-  opacity: 0.2;
+  opacity: 1;
+}
+
+/* green #b3ffe6 */
+/* purple #c599ff */
+
+.drums {
+  background-color: lightblue;
+}
+
+.vox {
+  background-color: #c599ff;
+}
+
+.chords {
+  background-color: #b3ffe6;
+}
+
+.synth {
+  background-color: lightyellow;
 }
 
 .turned-on {
+  border: 2px solid white;
+
   opacity: 1;
 }
+
+
+
+
 
 footer {
   padding-bottom: 20px;

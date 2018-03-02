@@ -23939,10 +23939,16 @@ class Grid {
 
         if (i <= 11) {
           $(`.synthesizer-beat.${beatId}`)
-          .append(`<li class='sequencer-button' id=${buttonId}></li>`);
-        } else {
+          .append(`<li class='sequencer-button synth' id=${buttonId}></li>`);
+        } else if (i >= 12 && i <= 18) {
           $(`.sampler-beat.${beatId}`)
-          .append(`<li class='sequencer-button' id=${buttonId}></li>`);
+          .append(`<li class='sequencer-button drums' id=${buttonId}></li>`);
+        } else if (i >= 19 && i <= 23) {
+          $(`.sampler-beat.${beatId}`)
+          .append(`<li class='sequencer-button vox' id=${buttonId}></li>`);
+        } else if (i >= 24 && i <= 31) {
+          $(`.sampler-beat.${beatId}`)
+          .append(`<li class='sequencer-button chords' id=${buttonId}></li>`);
         }
       }
     }
