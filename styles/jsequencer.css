@@ -122,11 +122,15 @@ header {
   padding-top: 30px;
 }
 
+header p {
+	margin-bottom: 10px;
+}
+
 header a {
-  font-size: 20px;
+	font-size: 20px;
 	text-decoration: none;
 	color: white;
-	
+
 	cursor: pointer;
 }
 
@@ -148,7 +152,7 @@ main {
 
 
 aside {
-  width: 200px;
+  width: 350px;
 
   display: flex;
   flex-direction: column;
@@ -156,11 +160,11 @@ aside {
 }
 
 #bpm-slider {
-  margin: 40px;
+  margin: 10px;
 }
 
 .play-stop-button {
-  margin: 40px;
+  margin: 15px;
 
   cursor: pointer;
 }
@@ -178,7 +182,7 @@ aside {
 }
 
 .playing {
-  margin: 41px;
+  margin: 16px;
   border: none;
   border-radius: 3px;
   width: 26px;
@@ -187,6 +191,14 @@ aside {
   background-color: white;
 
   opacity: 0.7;
+}
+
+aside p {
+	margin: 10px;
+
+	font-size: 20px;
+
+	cursor: pointer;
 }
 
 

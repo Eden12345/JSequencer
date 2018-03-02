@@ -23840,12 +23840,6 @@ class Synthesizer {
 
 
 
-// NOTE: If anyone is looking at the following class constructor and thinking
-// there is a shorter way to write it out, there is. In that case, however,
-// I would have to name the files something uniform, making it more difficult
-// to sort through them and edit the files later down the line. Also, the
-// volumes of course have to be individually adjusted.
-
 class Sampler {
   constructor() {
     this.source = {
@@ -23865,12 +23859,12 @@ class Sampler {
 
       sound24: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord1a.mp3'}),
       sound25: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord1b.mp3'}),
-      sound26: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord2a.mp3'}),
-      sound27: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord2b.mp3'}),
-      sound28: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord2c.mp3'}),
-      sound29: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord2d.mp3'}),
-      sound30: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord3a.mp3'}),
-      sound31: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord3b.mp3'}),
+      sound26: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord3a.mp3'}),
+      sound27: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord3b.mp3'}),
+      sound28: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord2a.mp3'}),
+      sound29: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord2b.mp3'}),
+      sound30: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord2c.mp3'}),
+      sound31: new __WEBPACK_IMPORTED_MODULE_0_Tone___default.a.Player({url: 'samples/chords/chord2d.mp3'}),
     };
 
     this.source.sound13.volume.value = -3;
@@ -23924,6 +23918,7 @@ class Player {
 class Grid {
   constructor() {
     this.toggleButton = this.toggleButton.bind(this);
+    this.exampleSequence = this.exampleSequence.bind(this);
   }
 
 
@@ -23935,7 +23930,7 @@ class Grid {
       $(".synthesizer").append(`<ol class='synthesizer-beat ${beatId}'></ol>`);
 
       for (let i = 1; i <= 31; i++) {
-        const buttonId = beatId + "sound" + i; // The buttonId is the beatId + soundId
+        const buttonId = beatId + "sound" + i;
 
         if (i <= 11) {
           $(`.synthesizer-beat.${beatId}`)
@@ -23954,6 +23949,7 @@ class Grid {
     }
 
     $('.sequencer-button').click(this.toggleButton);
+    $('.demo-button').click(this.exampleSequence);
   }
 
 
@@ -23972,6 +23968,23 @@ class Grid {
     $('.highlighted').removeClass('highlighted');
     $(`.${beatId}`).addClass('highlighted');
   }
+
+  exampleSequence() {
+    const buttonIds = [[1,12], [3,12], [5,12], [7,12], [9,12], [11,12], [13,12], [15,12],
+      [3,15], [7,15], [11,15], [15,15],
+      [2,16], [4,16], [6,16], [8,16], [10,16], [12,16], [14,16], [16,16],
+      [1,19],
+      [1,24], [6,25], [9,28], [12, 31], [14, 30],
+      [1,1], [3,9], [4,6], [7,10], [11,11], [15,3]
+    ];
+
+    buttonIds.forEach((el) => {
+      const buttonId = "beat" + el[0] + "sound" + el[1];
+      $(`#${buttonId}`).trigger("click");
+    });
+
+    $("#bpm-slider").prop("value", "215");
+  }
 }
 
 
@@ -23985,7 +23998,6 @@ class Sequencer {
     this.grid.setup();
     this.timeouts = {};
 
-    this.setupPlayButton = this.setupPlayButton.bind(this);
     this.playOrStop = this.playOrStop.bind(this);
     this.startPlaying = this.startPlaying.bind(this);
     this.stopPlaying = this.stopPlaying.bind(this);
