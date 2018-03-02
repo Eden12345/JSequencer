@@ -6,189 +6,39 @@ and 'webpack --watch' if you ever clone this repo -->
 <html>
 <head>
   <meta charset="utf-8">
-	<title>JamSync</title>
+	<title>JSequencer</title>
 
-	<link rel="stylesheet" type="text/css" href="styles/jamsync.css">
+	<link rel="stylesheet" type="text/css" href="styles/jsequencer.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
   <link rel="shortcut icon" href="assets/icon.ico" type="image/x-icon">
 </head>
-<body id="jamsync-body">
+<body>
 
   <div class="wrapper">
 
-
   	<header>
-      <p class="title">JamSync</p>
-      <button class="play" type="button">Play Demo Sequence</button>
-      <!-- <p class="description">A four-person music application using Tone.js for digital synthesis and audio sampling, and my custom library DOMinateJS for visual manipulation of the DOM</p> -->
+      <p class="title">JSequencer</p>
+      <a target="_blank" href="index.html">Go to JamSync</a>
     </header>
 
-
   	<main>
-
-      <section class="top-instruments">
-
-        <div class="instrument-container">
-
-          <div class="instrument-header">
-            <p class="instrument-title">Drum Samples</p>
-            <button class="stop stop-drums hidden" type="button">Stop</button>
-          </div>
-
-
-          <div id="drums" class="instrument">
-            <div id="192" class="key">
-              <p class="character">`</p>
-            </div>
-            <div id="49" class="key">
-              <p class="character">1</p>
-            </div>
-            <div id="50" class="key">
-              <p class="character">2</p>
-            </div>
-            <div id="51" class="key">
-              <p class="character">3</p>
-            </div>
-            <div id="52" class="key">
-              <p class="character">4</p>
-            </div>
-            <div id="53" class="key">
-              <p class="character">5</p>
-            </div>
-            <div id="54" class="key">
-              <p class="character">6</p>
-            </div>
-          </div>
-
+      <aside class="">
+        <div class="slider-container">
+          <input type="range" min="1" max="400" value="200" class="slider" id="bpm-slider">
         </div>
 
-        <div class="instrument-container">
+        <div class="play-stop-button stopped"></div>
+      </aside>
 
-          <div class="instrument-header">
-            <p class="instrument-title">Vocal Samples</p>
-            <button class="stop stop-vox hidden" type="button">Stop</button>
-          </div>
-
-          <div id="vox" class="instrument">
-            <div id="56" class="key">
-              <p class="character">8</p>
-            </div>
-            <div id="57" class="key">
-              <p class="character">9</p>
-            </div>
-            <div id="48" class="key">
-              <p class="character">0</p>
-            </div>
-            <div id="173" class="key">
-              <p class="character">-</p>
-            </div>
-            <div id="61" class="key">
-              <p class="character">=</p>
-            </div>
-          </div>
-
-        </div>
+      <section class="sampler">
 
       </section>
 
-      <section class="bottom-instruments">
-
-        <div class="instrument-container">
-
-          <div class="instrument-header">
-            <p class="instrument-title">Synthesizer</p>
-            <button class="stop stop-synth hidden" type="button">Stop</button>
-          </div>
-
-          <div id="synth" class="instrument">
-            <div id="65" class="key">
-              <p class="character">A</p>
-            </div>
-            <div id="83" class="key">
-              <p class="character">S</p>
-            </div>
-            <div id="68" class="key">
-              <p class="character">D</p>
-            </div>
-            <div id="70" class="key">
-              <p class="character">F</p>
-            </div>
-            <div id="71" class="key">
-              <p class="character">G</p>
-            </div>
-            <div id="72" class="key">
-              <p class="character">H</p>
-            </div>
-            <div id="90" class="key">
-              <p class="character">Z</p>
-            </div>
-            <div id="88" class="key">
-              <p class="character">X</p>
-            </div>
-            <div id="67" class="key">
-              <p class="character">C</p>
-            </div>
-            <div id="86" class="key">
-              <p class="character">V</p>
-            </div>
-            <div id="66" class="key">
-              <p class="character">B</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="instrument-container">
-
-          <div class="instrument-header">
-            <p class="instrument-title">Chords</p>
-            <button class="stop stop-chords hidden" type="button">Stop</button>
-          </div>
-
-          <div id="chords" class="instrument">
-
-            <div class="key-row row-1">
-              <div id="219" class="key">
-                <p class="character">[</p>
-              </div>
-              <div id="221" class="key">
-                <p class="character">]</p>
-              </div>
-            </div>
-
-            <div class="key-row row-2">
-              <div id="76" class="key">
-                <p class="character">l</p>
-              </div>
-              <div id="186" class="key">
-                <p class="character">;</p>
-              </div>
-              <div id="222" class="key">
-                <p class="character">'</p>
-              </div>
-            </div>
-
-            <div class="key-row row-3">
-              <div id="188" class="key">
-                <p class="character">,</p>
-              </div>
-              <div id="190" class="key">
-                <p class="character">.</p>
-              </div>
-              <div id="191" class="key">
-                <p class="character">/</p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
+      <section class="synthesizer">
 
       </section>
-
     </main>
-
 
     <footer>
       <p>
@@ -198,10 +48,7 @@ and 'webpack --watch' if you ever clone this repo -->
       </p>
     </footer>
 
-
   </div>
-
-  <!-- <div id="jamsync-indicator" style="display:none"><div> -->
 
   <script type="text/javascript" src="scripts/bundle.js"></script>
 
