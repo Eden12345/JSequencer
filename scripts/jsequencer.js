@@ -170,9 +170,16 @@ class Sequencer {
     this.grid.setup();
     this.timeouts = {};
 
+    this.setupPlayButton();
+
     this.playOrStop = this.playOrStop.bind(this);
     this.startPlaying = this.startPlaying.bind(this);
     this.stopPlaying = this.stopPlaying.bind(this);
+  }
+
+
+  setupPlayButton() {
+    $(".play-stop-button").click(this.playOrStop);
   }
 
 
@@ -192,11 +199,6 @@ class Sequencer {
   bpm() {
     const slider = $("#bpm-slider");
 	  return slider.value;
-  }
-
-
-  setupPlayButton() {
-    $(".play-stop-button").click(playOrStop);
   }
 
 
@@ -263,5 +265,3 @@ class Sequencer {
 }
 
 const seq = new Sequencer();
-
-debugger
