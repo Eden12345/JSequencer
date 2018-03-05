@@ -23897,16 +23897,32 @@ class Player {
     this.sampler = new Sampler();
 
     this.playSound = this.playSound.bind(this);
+    this.parser = this.parser.bind(this);
+  }
+
+  //Sort of repea
+  parser(clickEvent) {
+    const buttonId = clickEvent.target.id;
+    const splitIds = buttonId.split("s");
+    const soundId = "s" + splitIds[1];
+
+    return soundId;
   }
 
 
   playSound(soundKey) {
-    const keyInteger = parseInt(soundKey.slice(5));
+    let soundKeyCopy = soundKey;
+
+    if (typeof soundKeyCopy === "object") {
+      soundKeyCopy = this.parser(soundKey);
+    }
+
+    const keyInteger = parseInt(soundKeyCopy.slice(5));
 
     if (keyInteger < 12) {
-      this.synthesizer.playNote(soundKey);
+      this.synthesizer.playNote(soundKeyCopy);
     } else {
-      this.sampler.playSample(soundKey);
+      this.sampler.playSample(soundKeyCopy);
     }
   }
 }
@@ -23922,7 +23938,7 @@ class Grid {
   }
 
 
-  setup() {
+  setup(player) {
     for (let i = 1; i <= 16; i++) {
       const beatId = "beat" + i;
 
@@ -23930,8 +23946,10 @@ class Grid {
       $(".synthesizer").append(`<ol class='synthesizer-beat ${beatId}'></ol>`);
 
       for (let i = 1; i <= 31; i++) {
-        const buttonId = beatId + "sound" + i;
+        const soundId = "sound" + i;
+        const buttonId = beatId + soundId;
 
+        //Refactor this so you don't repeat these lines of HTML
         if (i <= 11) {
           $(`.synthesizer-beat.${beatId}`)
           .append(`<li class='sequencer-button synth' id=${buttonId}></li>`);
@@ -23945,6 +23963,8 @@ class Grid {
           $(`.sampler-beat.${beatId}`)
           .append(`<li class='sequencer-button chords' id=${buttonId}></li>`);
         }
+
+        $(`#${buttonId}`).click((e) => player.playSound(e));
       }
     }
 
@@ -23995,7 +24015,7 @@ class Sequencer {
   constructor() {
     this.player = new Player();
     this.grid = new Grid();
-    this.grid.setup();
+    this.grid.setup(this.player);
     this.timeouts = {};
 
     this.playOrStop = this.playOrStop.bind(this);
