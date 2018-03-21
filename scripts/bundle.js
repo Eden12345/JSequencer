@@ -23948,6 +23948,20 @@ class Randomizer {
       const buttonId = "beat" + el[0] + "sound" + el[1];
       $(`#${buttonId}`).trigger("click");
     });
+
+    let bpmValue = Math.random() * 400;
+
+    if (bpmValue < 380 && bpmValue >= 300) {
+      bpmValue += 20;
+    } else if (bpmValue < 300 && bpmValue >= 200) {
+      bpmValue += 35;
+    } else if (bpmValue < 200 && bpmValue >= 100) {
+      bpmValue += 50;
+    } else {
+      bpmValue += 70;
+    }
+
+    $("#bpm-slider").prop("value", `${bpmValue.toString()}`);
   }
 
   createRandomSet() {
@@ -23969,7 +23983,7 @@ class Randomizer {
             set.push([i,j]);
           }
         } else if (j >= 19 && j <= 23) {
-          if (this.generateBooleanRandomly(0.5)) {
+          if (this.generateBooleanRandomly(0.2)) {
             set.push([i,j]);
           }
         } else if (j >= 24 && j <= 31) {
@@ -24146,6 +24160,8 @@ class Sequencer {
 
   startPlaying(looping = false) {
     $("#bpm-slider").prop("disabled", true);
+    $(".demo-button").css("display", "none");
+    $(".random-button").css("display", "none");
     $(".play-stop-button").removeClass("stopped").addClass("playing");
 
     const milsToAdd = 60000 / this.bpm();
@@ -24177,6 +24193,8 @@ class Sequencer {
 
   stopPlaying() {
     $("#bpm-slider").prop("disabled", false);
+    $(".demo-button").css("display", "inline");
+    $(".random-button").css("display", "inline");
     $(".play-stop-button").removeClass("playing").addClass("stopped");
 
     for (let i = 1; i <= 16; i++) {
