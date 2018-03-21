@@ -127,11 +127,22 @@ header p {
 }
 
 header a {
+	border: 1px solid white;
+	border-radius: 10px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+	padding-left: 14px;
+	padding-right: 14px;
+
 	font-size: 20px;
 	text-decoration: none;
 	color: white;
 
 	cursor: pointer;
+}
+
+header a:hover {
+	border-color: lightgrey;
 }
 
 header a:focus {
@@ -165,7 +176,8 @@ aside {
 }
 
 #bpm-slider {
-  margin: 10px;
+  margin: 15px;
+	margin-bottom: 20px;
 }
 
 .play-stop-button {
@@ -199,14 +211,13 @@ aside {
 }
 
 aside p {
-	margin: 15px;
+	margin: 10px;
 	border: 1px solid white;
 	border-radius: 10px;
 	padding-top: 7px;
 	padding-bottom: 5px;
 	padding-left: 9px;
 	padding-right: 9px;
-	width: 172px;
 
 	font-size: 20px;
 	text-align: center;
@@ -214,6 +225,18 @@ aside p {
 	display: inline-block;
 
 	cursor: pointer;
+}
+
+.demo-button {
+	width: 180px;
+}
+
+.random-button {
+	width: 107px;
+}
+
+.clear-button {
+	width: 58px;
 }
 
 aside p:hover {

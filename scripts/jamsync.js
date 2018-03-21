@@ -779,11 +779,11 @@ const changeButton = () => {
   if (playing) {
     stopAll();
     playing = false;
-    $(".play").text("Play Demo Sequence");
+    $(".play").text("play demo sequence");
   } else {
     playSequence();
     playing = true;
-    $(".play").text("Stop Playing Sequence");
+    $(".play").text("stop playing sequence");
   }
 };
 

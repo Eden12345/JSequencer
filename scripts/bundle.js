@@ -24033,6 +24033,7 @@ class Grid {
 
     $('.sequencer-button').click(this.toggleButton);
     $('.demo-button').click(this.exampleSequence);
+    $('.clear-button').click(this.clearGrid);
     $('.random-button').click(() => {
       this.clearGrid();
       this.randomizer.randomizeButtons();
@@ -24989,11 +24990,11 @@ const changeButton = () => {
   if (playing) {
     stopAll();
     playing = false;
-    $(".play").text("Play Demo Sequence");
+    $(".play").text("play demo sequence");
   } else {
     playSequence();
     playing = true;
-    $(".play").text("Stop Playing Sequence");
+    $(".play").text("stop playing sequence");
   }
 };
 

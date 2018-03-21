@@ -55,10 +55,10 @@ button {
 	cursor: pointer;
 	border: 1px solid white;
 	border-radius: 10px;
-	padding-top: 3px;
+	padding-top: 1px;
 	padding-bottom: 6px;
-	padding-left: 11px;
-	padding-right: 11px;
+	padding-left: 18px;
+	padding-right: 18px;
 }
 
 button:hover {

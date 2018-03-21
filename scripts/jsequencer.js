@@ -224,6 +224,7 @@ class Grid {
 
     $('.sequencer-button').click(this.toggleButton);
     $('.demo-button').click(this.exampleSequence);
+    $('.clear-button').click(this.clearGrid);
     $('.random-button').click(() => {
       this.clearGrid();
       this.randomizer.randomizeButtons();
