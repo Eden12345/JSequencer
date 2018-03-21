@@ -122,6 +122,23 @@ class Player {
 
 
 
+// class Randomizer {
+//   constructor() {
+//     this.settings = {
+//       drums: "off",
+//       vox: "off",
+//       chords: "off",
+//       synth: "off"
+//     };
+//   }
+//
+//
+// }
+
+
+
+
+
 class Grid {
   constructor() {
     this.toggleButton = this.toggleButton.bind(this);
@@ -140,7 +157,6 @@ class Grid {
         const soundId = "sound" + i;
         const buttonId = beatId + soundId;
 
-        //Refactor this so you don't repeat these lines of HTML
         if (i <= 11) {
           $(`.synthesizer-beat.${beatId}`)
           .append(`<li class='sequencer-button synth' id=${buttonId}></li>`);
@@ -180,6 +196,7 @@ class Grid {
     $(`.${beatId}`).addClass('highlighted');
   }
 
+
   exampleSequence() {
     const buttonIds = [[1,12], [3,12], [5,12], [7,12], [9,12], [11,12], [13,12], [15,12],
       [3,15], [7,15], [11,15], [15,15],
@@ -196,6 +213,11 @@ class Grid {
 
     $("#bpm-slider").prop("value", "215");
   }
+
+
+  // clearGrid() {
+  //
+  // }
 }
 
 

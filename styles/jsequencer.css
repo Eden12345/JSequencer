@@ -141,10 +141,12 @@ header a:focus {
 
 
 main {
-  height: 700px;;
+  height: 100vh;
+	margin-top: -100px;
 
   display: flex;
   align-items: center;
+	justify-content: space-around;
 }
 
 
@@ -153,9 +155,12 @@ main {
 
 aside {
   width: 350px;
+	margin-left: 5px;
+	margin-right: 5px;
 
   display: flex;
   flex-direction: column;
+	justify-content: space-around;
   align-items: center;
 }
 
@@ -164,7 +169,7 @@ aside {
 }
 
 .play-stop-button {
-  margin: 15px;
+  margin: 25px;
 
   cursor: pointer;
 }
@@ -194,11 +199,25 @@ aside {
 }
 
 aside p {
-	margin: 10px;
+	margin: 15px;
+	border: 1px solid white;
+	border-radius: 10px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+	padding-left: 9px;
+	padding-right: 9px;
+	width: 172px;
 
 	font-size: 20px;
+	text-align: center;
+
+	display: inline-block;
 
 	cursor: pointer;
+}
+
+aside p:hover {
+	border-color: lightgrey;
 }
 
 
@@ -216,8 +235,8 @@ section {
   border: 2px solid pink;
   border-radius: 3px;
   margin: 2px;
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
 
   opacity: .6;
 
