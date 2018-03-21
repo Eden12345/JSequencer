@@ -91,7 +91,6 @@ class Player {
     this.parser = this.parser.bind(this);
   }
 
-  //Sort of repea
   parser(clickEvent) {
     const buttonId = clickEvent.target.id;
     const splitIds = buttonId.split("s");
@@ -122,18 +121,18 @@ class Player {
 
 
 
-// class Randomizer {
-//   constructor() {
-//     this.settings = {
-//       drums: "off",
-//       vox: "off",
-//       chords: "off",
-//       synth: "off"
-//     };
-//   }
-//
-//
-// }
+class Randomizer {
+  constructor() {
+    this.settings = {
+      drums: "off",
+      vox: "off",
+      chords: "off",
+      synth: "off"
+    };
+  }
+
+
+}
 
 
 
@@ -143,6 +142,7 @@ class Grid {
   constructor() {
     this.toggleButton = this.toggleButton.bind(this);
     this.exampleSequence = this.exampleSequence.bind(this);
+    this.clearGrid = this.clearGrid.bind(this);
   }
 
 
@@ -198,6 +198,8 @@ class Grid {
 
 
   exampleSequence() {
+    this.clearGrid();
+
     const buttonIds = [[1,12], [3,12], [5,12], [7,12], [9,12], [11,12], [13,12], [15,12],
       [3,15], [7,15], [11,15], [15,15],
       [2,16], [4,16], [6,16], [8,16], [10,16], [12,16], [14,16], [16,16],
@@ -215,9 +217,16 @@ class Grid {
   }
 
 
-  // clearGrid() {
-  //
-  // }
+  clearGrid() {
+    for (let i = 1; i <= 16; i++) {
+      const beatId = "beat" + i;
+
+      for (let j = 1; j <= 31; j++) {
+        const buttonId = beatId + "sound" + j;
+        $(`#${buttonId}`).removeClass('turned-on');
+      }
+    }
+  }
 }
 
 
