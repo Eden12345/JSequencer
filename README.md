@@ -6,13 +6,13 @@ JSequencer is a step sequencer that uses digital synthesis through the Web Audio
 
 ## Description
 
-After building on my experience creating JamSync with the Tone.js library, I moved on to a step sequencer using the same synthesizer and samples. This allows the user to play live instruments in JamSync along with their JSequencer patterns to further expand options for improvisation.
+After building on my experience creating the live improvisational project JamSync with the Tone.js library, I moved on to a sequencer using the same synthesizer and samples. This allows the user to play live instruments in JamSync along with their JSequencer patterns to further expand options for improvisation.
 
 ![screencap](https://github.com/Eden12345/JamSync/blob/master/assets/jseqscreencap.png)
 
-The randomizer brings the element of computer generated music while allowing less initiated users to engage and interact more easily. I wanted to have more sound options than other sequencers on the web, so I also had to ensure that it wasn't too daunting a task to highlight a majority of them.
+The randomizer brings in the element of computer generated music while allowing less initiated users to engage and interact more easily. I wanted to have more sound options than other sequencers on the web, so I also had to ensure that it wasn't too daunting a task to highlight a majority of them.
 
-JSequencer is written far more cleanly than JamSync, even though it is far more complicated, and this was because I spent most of my time on this project planning how I would program it rather than getting in front of my computer and typing away. Much of this planning was devoted to figuring out how to avoid repeat code and which frameworks and functions I would use to do so. jQuery was useful for synchronized visualizations, similarly to JamSync, but one of its great uses in this project is helping avoid typing out 496 lines of HTML code for my sequencer grid.
+JSequencer is written far more cleanly than JamSync, even though it is far more complicated, and this was because I spent most of my time on this project planning how I would program it rather than getting in front of my computer and typing away. Much of this planning was devoted to figuring out how to avoid repeat code and which frameworks and functions I would use to do so. jQuery was useful for synchronized visualizations, similarly to JamSync, but one of its great uses in this project was helping avoid typing out 496 lines of HTML code for my sequencer grid :)
 
 ```javascript
 function setup(player) {
