@@ -23938,9 +23938,54 @@ class Randomizer {
       chords: "off",
       synth: "off"
     };
+
+    this.createRandomSet = this.createRandomSet.bind(this);
+    this.generateBooleanRandomly = this.generateBooleanRandomly.bind(this);
   }
 
+  randomizeButtons() {
+    this.createRandomSet().forEach((el) => {
+      const buttonId = "beat" + el[0] + "sound" + el[1];
+      $(`#${buttonId}`).trigger("click");
+    });
+  }
 
+  createRandomSet() {
+    const set = [];
+
+    for (let i = 1; i <= 16; i++) {
+      for (let j = 1; j <= 31; j++) {
+
+        if (j <= 11) {
+          if (this.generateBooleanRandomly(1)) {
+            set.push([i,j]);
+          }
+        } else if (j === 12) {
+          if (this.generateBooleanRandomly(5)) {
+            set.push([i,j]);
+          }
+        } else if (j >= 13 && j <= 18) {
+          if (this.generateBooleanRandomly(3)) {
+            set.push([i,j]);
+          }
+        } else if (j >= 19 && j <= 23) {
+          if (this.generateBooleanRandomly(0.5)) {
+            set.push([i,j]);
+          }
+        } else if (j >= 24 && j <= 31) {
+          if (this.generateBooleanRandomly(1.5)) {
+            set.push([i,j]);
+          }
+        }
+      }
+    }
+
+    return set;
+  }
+
+  generateBooleanRandomly(number) {
+    return Math.random() < (0.1 * number);
+  }
 }
 
 
@@ -23949,6 +23994,8 @@ class Randomizer {
 
 class Grid {
   constructor() {
+    this.randomizer = new Randomizer();
+
     this.toggleButton = this.toggleButton.bind(this);
     this.exampleSequence = this.exampleSequence.bind(this);
     this.clearGrid = this.clearGrid.bind(this);
@@ -23962,20 +24009,20 @@ class Grid {
       $(".sampler").append(`<ol class='sampler-beat ${beatId}'></ol>`);
       $(".synthesizer").append(`<ol class='synthesizer-beat ${beatId}'></ol>`);
 
-      for (let i = 1; i <= 31; i++) {
-        const soundId = "sound" + i;
+      for (let j = 1; j <= 31; j++) {
+        const soundId = "sound" + j;
         const buttonId = beatId + soundId;
 
-        if (i <= 11) {
+        if (j <= 11) {
           $(`.synthesizer-beat.${beatId}`)
           .append(`<li class='sequencer-button synth' id=${buttonId}></li>`);
-        } else if (i >= 12 && i <= 18) {
+        } else if (j >= 12 && j <= 18) {
           $(`.sampler-beat.${beatId}`)
           .append(`<li class='sequencer-button drums' id=${buttonId}></li>`);
-        } else if (i >= 19 && i <= 23) {
+        } else if (j >= 19 && j <= 23) {
           $(`.sampler-beat.${beatId}`)
           .append(`<li class='sequencer-button vox' id=${buttonId}></li>`);
-        } else if (i >= 24 && i <= 31) {
+        } else if (j >= 24 && j <= 31) {
           $(`.sampler-beat.${beatId}`)
           .append(`<li class='sequencer-button chords' id=${buttonId}></li>`);
         }
@@ -23986,6 +24033,10 @@ class Grid {
 
     $('.sequencer-button').click(this.toggleButton);
     $('.demo-button').click(this.exampleSequence);
+    $('.random-button').click(() => {
+      this.clearGrid();
+      this.randomizer.randomizeButtons();
+    });
   }
 
 
