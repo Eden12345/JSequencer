@@ -142,7 +142,7 @@ header a:focus {
 
 main {
   height: 100vh;
-	margin-top: -100px;
+	margin-top: -80px;
 
   display: flex;
   align-items: center;
