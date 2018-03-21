@@ -24024,22 +24024,21 @@ class Grid {
       $(".synthesizer").append(`<ol class='synthesizer-beat ${beatId}'></ol>`);
 
       for (let j = 1; j <= 31; j++) {
-        const soundId = "sound" + j;
-        const buttonId = beatId + soundId;
+        const buttonId = beatId + "sound" + j;
+        let type, inst;
 
         if (j <= 11) {
-          $(`.synthesizer-beat.${beatId}`)
-          .append(`<li class='sequencer-button synth' id=${buttonId}></li>`);
+          type = "synthesizer"; inst = "synth";
         } else if (j >= 12 && j <= 18) {
-          $(`.sampler-beat.${beatId}`)
-          .append(`<li class='sequencer-button drums' id=${buttonId}></li>`);
+          type = "sampler"; inst = "drums";
         } else if (j >= 19 && j <= 23) {
-          $(`.sampler-beat.${beatId}`)
-          .append(`<li class='sequencer-button vox' id=${buttonId}></li>`);
+          type = "sampler"; inst = "vox";
         } else if (j >= 24 && j <= 31) {
-          $(`.sampler-beat.${beatId}`)
-          .append(`<li class='sequencer-button chords' id=${buttonId}></li>`);
+          type = "sampler"; inst = "chords";
         }
+
+        $(`.${type}-beat.${beatId}`)
+        .append(`<li class='sequencer-button ${inst}' id=${buttonId}></li>`);
 
         $(`#${buttonId}`).click((e) => player.playSound(e));
       }
