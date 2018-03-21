@@ -146,7 +146,7 @@ main {
 
   display: flex;
   align-items: center;
-	justify-content: space-around;
+	justify-content: center;
 }
 
 
@@ -154,9 +154,9 @@ main {
 
 
 aside {
-  width: 350px;
-	margin-left: 5px;
-	margin-right: 5px;
+  width: 180px;
+	margin-right: -10px;
+	margin-left: -20px;
 
   display: flex;
   flex-direction: column;
@@ -225,8 +225,9 @@ aside p:hover {
 
 
 section {
-  width: 700px;
+  width: 400px;
   height: auto;
+	margin-left: 50px;
 
   display: flex;
 }
