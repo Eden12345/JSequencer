@@ -23946,7 +23946,7 @@ class Randomizer {
   randomizeButtons() {
     this.createRandomSet().forEach((el) => {
       const buttonId = "beat" + el[0] + "sound" + el[1];
-      $(`#${buttonId}`).trigger("click");
+      $(`#${buttonId}`).addClass("turned-on");
     });
 
     let bpmValue = Math.random() * 400;
@@ -24040,7 +24040,11 @@ class Grid {
         $(`.${type}-beat.${beatId}`)
         .append(`<li class='sequencer-button ${inst}' id=${buttonId}></li>`);
 
-        $(`#${buttonId}`).click((e) => player.playSound(e));
+        $(`#${buttonId}`).click((e) => {
+          if ($(`#${buttonId}`).hasClass("turned-on") === false) {
+            player.playSound(e);
+          }
+        });
       }
     }
 
@@ -24087,7 +24091,7 @@ class Grid {
 
     buttonIds.forEach((el) => {
       const buttonId = "beat" + el[0] + "sound" + el[1];
-      $(`#${buttonId}`).trigger("click");
+      $(`#${buttonId}`).addClass("turned-on");
     });
 
     $("#bpm-slider").prop("value", "215");
@@ -24158,7 +24162,7 @@ class Sequencer {
 
 
   startPlaying(looping = false) {
-    $("#bpm-slider").prop("disabled", true);
+    $(".slider-container").css("display", "none");
     $(".demo-button").css("display", "none");
     $(".random-button").css("display", "none");
     $(".play-stop-button").removeClass("stopped").addClass("playing");
@@ -24191,7 +24195,7 @@ class Sequencer {
 
 
   stopPlaying() {
-    $("#bpm-slider").prop("disabled", false);
+    $(".slider-container").css("display", "flex");
     $(".demo-button").css("display", "inline");
     $(".random-button").css("display", "inline");
     $(".play-stop-button").removeClass("playing").addClass("stopped");

@@ -175,9 +175,25 @@ aside {
   align-items: center;
 }
 
+.slider-container {
+	border: 1px solid white;
+	border-radius: 10px;
+	padding-bottom: 5px;
+	padding-left: 9px;
+	padding-right: 9px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.slider-container p {
+	border: none;
+	padding-top: 0px;
+	margin-top: 8px;
+}
+
 #bpm-slider {
-  margin: 15px;
-	margin-bottom: 20px;
 }
 
 .play-stop-button {
