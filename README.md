@@ -14,36 +14,7 @@ The randomizer brings in the element of computer generated music while allowing 
 
 JSequencer is written far more cleanly than JamSync, even though it is far more complicated, and this was because I spent most of my time on this project planning how I would program it rather than getting in front of my computer and typing away. Much of this planning was devoted to figuring out how to avoid repeat code and which frameworks and functions I would use to do so. jQuery was useful for synchronized visualizations, similarly to JamSync, but one of its great uses in this project was helping avoid typing out 496 lines of HTML code for my sequencer grid :)
 
-```javascript
-function setup(player) {
-  for (let i = 1; i <= 16; i++) {
-    const beatId = "beat" + i;
-    $(".sampler").append(`<ol class='sampler-beat ${beatId}'></ol>`);
-    $(".synthesizer").append(`<ol class='synthesizer-beat ${beatId}'></ol>`);
-
-    for (let j = 1; j <= 31; j++) {
-      const buttonId = beatId + "sound" + j;
-      let type, inst;
-
-      if (j <= 11) {
-        type = "synthesizer"; inst = "synth";
-      } else if (j >= 12 && j <= 18) {
-        type = "sampler"; inst = "drums";
-      } else if (j >= 19 && j <= 23) {
-        type = "sampler"; inst = "vox";
-      } else if (j >= 24 && j <= 31) {
-        type = "sampler"; inst = "chords";
-      }
-
-      $(`.${type}-beat.${beatId}`)
-      .append(`<li class='sequencer-button ${inst}' id=${buttonId}></li>`);
-      $(`#${buttonId}`).click((e) => player.playSound(e));
-    }
-  }
-}
-```
-
-You can check out the README for JamSync below as well, which might give some context for the foundation of JSequencer.
+You can check out the README for my older project JamSync below, which might give some context for the foundation of JSequencer.
 
 # JamSync
 
