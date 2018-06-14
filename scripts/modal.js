@@ -34,7 +34,7 @@ const step = (clickEvent) => {
       break;
     case 5:
       $("#next").html("Finish >");
-      // $("#skip").html(" ");
+      $("#skip").css("visibility", "hidden");
       break;
     case 6:
       $(".instructions").css("display", "none");
@@ -44,6 +44,7 @@ const step = (clickEvent) => {
       $("#back").html("< Back");
       $("#next").html("Next >");
       $("#skip").html("Skip");
+      $("#skip").css("visibility", "visible");
   }
 
   // if (currentIndex === 0) {
