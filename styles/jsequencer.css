@@ -338,3 +338,69 @@ footer a {
 	text-decoration: none;
 	color: white;
 }
+
+
+
+
+
+.instructions {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+}
+
+.instruction-modal {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.4;
+}
+
+.instruction-wrapper {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.instructions p {
+	font-size: 30px;
+	text-align: center;
+	/* display: none; */
+	width: 923px;
+	color: white;
+	text-shadow: 0px 0px 20px black;
+}
+
+footer.buttons {
+	width: 95vw;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+footer.buttons p {
+	width: auto;
+	font-size: 35px;
+	display: inline;
+	cursor: pointer;
+}
+
+#back {
+	position: absolute;
+	left: 20px;
+}
+
+#next {
+	position: absolute;
+	right: 20px;
+}
