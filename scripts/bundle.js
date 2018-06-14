@@ -25039,7 +25039,7 @@ $(".stop-vox").click(stopVox);
 
 const instructions = [
   "Welcome! Press Next to continue through the instructions, or press Skip to head straight to the JSequencer.",
-  "The grid of buttons represents a series of sounds that will be played in a loop. Each color corresponds to a different instrument. <br> <br> (blue = drums, purple = vocals, green = chords, yellow = synthesizer)",
+  "The grid of buttons represents a series of sounds that will be played in a loop. Each color corresponds to a different instrument. <br> <br> blue = drums | purple = vocals | green = chords | yellow = synthesizer",
   "When the JSequencer is playing, it will highlight which sounds are being played at that moment in the loop.",
   "The main controls are on the left. The triangle at the top is the play button (which will turn into a square stop button after you click it). <br> <br> The slider adjusts the speed at which the JSequencer will play.",
   "The randomize button will randomly change the speed and all the buttons on the grid. The clear button will clear the entire grid.",
