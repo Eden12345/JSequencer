@@ -38,6 +38,7 @@ const step = (clickEvent) => {
       break;
     case 6:
       $(".instructions").css("display", "none");
+      $(".demo-button").trigger("click");
       break;
     default:
       $("#back").html("< Back");
