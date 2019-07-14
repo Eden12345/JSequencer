@@ -23830,14 +23830,11 @@ class Synthesizer {
     this.playNote = this.playNote.bind(this);
   }
 
-
   playNote(soundKey) {
     this.source.triggerAttack(this.noteHash[soundKey], '+0.05');
     this.source.triggerRelease('+0.25');
   }
 }
-
-
 
 
 
@@ -23882,13 +23879,10 @@ class Sampler {
     this.playSample = this.playSample.bind(this);
   }
 
-
   playSample(soundKey) {
     this.source[soundKey].start('+0.05');
   }
 }
-
-
 
 
 
@@ -23909,7 +23903,6 @@ class Player {
     return soundId;
   }
 
-
   playSound(soundKey) {
     let soundKeyCopy = soundKey;
 
@@ -23926,8 +23919,6 @@ class Player {
     }
   }
 }
-
-
 
 
 
@@ -24005,8 +23996,6 @@ class Randomizer {
 
 
 
-
-
 class Grid {
   constructor() {
     this.randomizer = new Randomizer();
@@ -24015,7 +24004,6 @@ class Grid {
     this.exampleSequence = this.exampleSequence.bind(this);
     this.clearGrid = this.clearGrid.bind(this);
   }
-
 
   setup(player) {
     for (let i = 1; i <= 16; i++) {
@@ -24058,7 +24046,6 @@ class Grid {
     });
   }
 
-
   toggleButton(event) {
     const button = $(event.target);
 
@@ -24069,17 +24056,13 @@ class Grid {
     }
   }
 
-
   highlightColumn(beatId) {
     $('.highlighted').removeClass('highlighted');
     $(`.${beatId}`).addClass('highlighted');
   }
 
-
   exampleSequence() {
     this.clearGrid();
-
-    //removed [4,16],[16,16]
 
     const buttonIds = [[1,12], [3,12], [5,12], [7,12], [9,12], [11,12], [13,12], [15,12],
       [3,13], [7,13], [11,13], [15,13],
@@ -24098,7 +24081,6 @@ class Grid {
     $("#bpm-slider").prop("value", "215");
   }
 
-
   clearGrid() {
     for (let i = 1; i <= 16; i++) {
       const beatId = "beat" + i;
@@ -24110,8 +24092,6 @@ class Grid {
     }
   }
 }
-
-
 
 
 
@@ -24129,11 +24109,9 @@ class Sequencer {
     this.setupPlayButton();
   }
 
-
   setupPlayButton() {
     $(".play-stop-button").click(this.playOrStop);
   }
-
 
   splitter(buttonId, returnVal) {
     const splitIds = buttonId.split("s");
@@ -24147,11 +24125,9 @@ class Sequencer {
     }
   }
 
-
   bpm() {
     return $("#bpm-slider").val();
   }
-
 
   playOrStop() {
     if ($(".play-stop-button").hasClass("stopped")) {
@@ -24160,7 +24136,6 @@ class Sequencer {
       this.stopPlaying();
     }
   }
-
 
   startPlaying(looping = false) {
     $(".slider-container").css("display", "none");
@@ -24195,7 +24170,6 @@ class Sequencer {
     }
   }
 
-
   stopPlaying() {
     $(".slider-container").css("display", "flex");
     $(".demo-button").css("display", "inline");
@@ -24215,7 +24189,6 @@ class Sequencer {
 
     clearInterval(this.timeouts.loop);
   }
-
 
   triggerButton(buttonId) {
     if ($(`#${buttonId}`).hasClass('turned-on')) {
@@ -25037,6 +25010,13 @@ $(".stop-vox").click(stopVox);
 /* 4 */
 /***/ (function(module, exports) {
 
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  $(".instructions").css("display", "none");
+  $(".mobile-warning").css("display", "flex");
+}
+
+
+
 const instructions = [
   "Welcome! Press Next to continue through the instructions, or press Skip to head straight to the JSequencer.",
   "The grid of buttons represents a series of sounds that will be played in a loop. Each color corresponds to a different instrument. <br> <br> blue = drums | purple = vocals | green = chords | yellow = synthesizer",
@@ -25072,12 +25052,13 @@ const step = (clickEvent) => {
       $(".play-stop-button").trigger("click");
       break;
     case 5:
-      $("#next").html("Finish >");
       $("#skip").css("visibility", "hidden");
+      $("#back").html("");
+      $("#next").html("Finish >");
+      $(".demo-button").trigger("click");
       break;
     case 6:
       $(".instructions").css("display", "none");
-      $(".demo-button").trigger("click");
       break;
     default:
       $("#back").html("< Back");
@@ -25086,26 +25067,12 @@ const step = (clickEvent) => {
       $("#skip").css("visibility", "visible");
   }
 
-  // if (currentIndex === 0) {
-  //   $("#back").html("");
-  // } else if (currentIndex === 5) {
-  //   $("#next").html("Finish >");
-  //   $("#skip").html("");
-  // } else if (currentIndex === 6){
-  //   $(".instructions").css("display", "none");
-  // } else {
-  //   $("#back").html("< Back");
-  //   $("#next").html("Next >");
-  //   $("#skip").html("Skip");
-  // }
-
   $(".instruction").html(instructions[currentIndex]);
 };
 
 const skip = (clickEvent) => {
   $(".instructions").css("display", "none");
 };
-
 
 
 

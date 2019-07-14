@@ -1,3 +1,10 @@
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  $(".instructions").css("display", "none");
+  $(".mobile-warning").css("display", "flex");
+}
+
+
+
 const instructions = [
   "Welcome! Press Next to continue through the instructions, or press Skip to head straight to the JSequencer.",
   "The grid of buttons represents a series of sounds that will be played in a loop. Each color corresponds to a different instrument. <br> <br> blue = drums | purple = vocals | green = chords | yellow = synthesizer",
@@ -33,12 +40,13 @@ const step = (clickEvent) => {
       $(".play-stop-button").trigger("click");
       break;
     case 5:
-      $("#next").html("Finish >");
       $("#skip").css("visibility", "hidden");
+      $("#back").html("");
+      $("#next").html("Finish >");
+      $(".demo-button").trigger("click");
       break;
     case 6:
       $(".instructions").css("display", "none");
-      $(".demo-button").trigger("click");
       break;
     default:
       $("#back").html("< Back");
@@ -47,26 +55,12 @@ const step = (clickEvent) => {
       $("#skip").css("visibility", "visible");
   }
 
-  // if (currentIndex === 0) {
-  //   $("#back").html("");
-  // } else if (currentIndex === 5) {
-  //   $("#next").html("Finish >");
-  //   $("#skip").html("");
-  // } else if (currentIndex === 6){
-  //   $(".instructions").css("display", "none");
-  // } else {
-  //   $("#back").html("< Back");
-  //   $("#next").html("Next >");
-  //   $("#skip").html("Skip");
-  // }
-
   $(".instruction").html(instructions[currentIndex]);
 };
 
 const skip = (clickEvent) => {
   $(".instructions").css("display", "none");
 };
-
 
 
 

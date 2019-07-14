@@ -7,11 +7,6 @@ module.exports = {
     path: path.resolve(__dirname, 'scripts'),
     filename: "bundle.js"
   },
-  // module: {
-  //   loaders: [
-  //     {exclude: /node_modules/}
-  //   ]
-  // },
   resolve: {
     extensions: [".js", ".jsx", "*"]
 	}

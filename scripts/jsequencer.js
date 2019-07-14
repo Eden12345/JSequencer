@@ -20,14 +20,11 @@ class Synthesizer {
     this.playNote = this.playNote.bind(this);
   }
 
-
   playNote(soundKey) {
     this.source.triggerAttack(this.noteHash[soundKey], '+0.05');
     this.source.triggerRelease('+0.25');
   }
 }
-
-
 
 
 
@@ -72,13 +69,10 @@ class Sampler {
     this.playSample = this.playSample.bind(this);
   }
 
-
   playSample(soundKey) {
     this.source[soundKey].start('+0.05');
   }
 }
-
-
 
 
 
@@ -99,7 +93,6 @@ class Player {
     return soundId;
   }
 
-
   playSound(soundKey) {
     let soundKeyCopy = soundKey;
 
@@ -116,8 +109,6 @@ class Player {
     }
   }
 }
-
-
 
 
 
@@ -195,8 +186,6 @@ class Randomizer {
 
 
 
-
-
 class Grid {
   constructor() {
     this.randomizer = new Randomizer();
@@ -205,7 +194,6 @@ class Grid {
     this.exampleSequence = this.exampleSequence.bind(this);
     this.clearGrid = this.clearGrid.bind(this);
   }
-
 
   setup(player) {
     for (let i = 1; i <= 16; i++) {
@@ -248,7 +236,6 @@ class Grid {
     });
   }
 
-
   toggleButton(event) {
     const button = $(event.target);
 
@@ -259,17 +246,13 @@ class Grid {
     }
   }
 
-
   highlightColumn(beatId) {
     $('.highlighted').removeClass('highlighted');
     $(`.${beatId}`).addClass('highlighted');
   }
 
-
   exampleSequence() {
     this.clearGrid();
-
-    //removed [4,16],[16,16]
 
     const buttonIds = [[1,12], [3,12], [5,12], [7,12], [9,12], [11,12], [13,12], [15,12],
       [3,13], [7,13], [11,13], [15,13],
@@ -288,7 +271,6 @@ class Grid {
     $("#bpm-slider").prop("value", "215");
   }
 
-
   clearGrid() {
     for (let i = 1; i <= 16; i++) {
       const beatId = "beat" + i;
@@ -300,8 +282,6 @@ class Grid {
     }
   }
 }
-
-
 
 
 
@@ -319,11 +299,9 @@ class Sequencer {
     this.setupPlayButton();
   }
 
-
   setupPlayButton() {
     $(".play-stop-button").click(this.playOrStop);
   }
-
 
   splitter(buttonId, returnVal) {
     const splitIds = buttonId.split("s");
@@ -337,11 +315,9 @@ class Sequencer {
     }
   }
 
-
   bpm() {
     return $("#bpm-slider").val();
   }
-
 
   playOrStop() {
     if ($(".play-stop-button").hasClass("stopped")) {
@@ -350,7 +326,6 @@ class Sequencer {
       this.stopPlaying();
     }
   }
-
 
   startPlaying(looping = false) {
     $(".slider-container").css("display", "none");
@@ -385,7 +360,6 @@ class Sequencer {
     }
   }
 
-
   stopPlaying() {
     $(".slider-container").css("display", "flex");
     $(".demo-button").css("display", "inline");
@@ -405,7 +379,6 @@ class Sequencer {
 
     clearInterval(this.timeouts.loop);
   }
-
 
   triggerButton(buttonId) {
     if ($(`#${buttonId}`).hasClass('turned-on')) {

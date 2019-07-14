@@ -99,21 +99,15 @@ button:focus {
 
 /* STYLING */
 
-.wrapper {
-  height: 100vh;
-  width: 100vw;
-
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
-}
-
 body {
   background-color: pink;
 
   font-family: sans-serif;
   color: white;
   font-size: 26px;
+
+	min-height: 700px;
+	min-width: 1150px;
 }
 
 header {
@@ -148,6 +142,8 @@ header a:hover {
 header a:focus {
   outline: 0;
 }
+
+
 
 
 
@@ -356,7 +352,7 @@ footer a {
 	justify-content: center;
 }
 
-.instruction-modal {
+.modal-overlay {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -376,7 +372,6 @@ footer a {
 .instructions p {
 	font-size: 30px;
 	text-align: center;
-	/* display: none; */
 	width: 923px;
 	color: white;
 	text-shadow: 0px 0px 20px black;
@@ -404,4 +399,30 @@ footer.buttons p {
 #next {
 	position: absolute;
 	right: 20px;
+}
+
+
+
+
+
+.mobile-warning {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100vw;
+	height: 100vh;
+
+	justify-content: center;
+	display: none;
+}
+
+.mobile-warning p {
+	position: absolute;
+	padding: 15px;
+	font-size: 20px;
+	text-align: center;
+	align-self: center;
+	color: white;
+	text-shadow: 0px 0px 20px black;
 }
