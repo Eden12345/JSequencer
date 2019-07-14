@@ -101,13 +101,20 @@ button:focus {
 
 body {
   background-color: pink;
+	min-height: 700px;
+	height: 100vh;
+	min-width: 1150px;
+	width: 100vw;
+	overflow: auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 
   font-family: sans-serif;
   color: white;
   font-size: 26px;
-
-	min-height: 700px;
-	min-width: 1150px;
 }
 
 header {
@@ -148,8 +155,7 @@ header a:focus {
 
 
 main {
-  height: 100vh;
-	margin-top: -80px;
+  height: 500px;
 
   display: flex;
   align-items: center;
@@ -336,12 +342,16 @@ footer a {
 	color: white;
 }
 
+.footer-links {
+	position: relative;
+}
+
 
 
 
 
 .instructions {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 
@@ -364,6 +374,7 @@ footer a {
 	position: absolute;
 	width: 100vw;
 	height: 100vh;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -375,6 +386,10 @@ footer a {
 	width: 923px;
 	color: white;
 	text-shadow: 0px 0px 20px black;
+}
+
+.instruction {
+	padding: 60px;
 }
 
 footer.buttons {
@@ -406,12 +421,12 @@ footer.buttons p {
 
 
 .mobile-warning {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 
-	width: 100vw;
-	height: 100vh;
+	width: 120vw;
+	height: 120vh;
 
 	justify-content: center;
 	display: none;
@@ -419,8 +434,8 @@ footer.buttons p {
 
 .mobile-warning p {
 	position: absolute;
-	padding: 15px;
-	font-size: 20px;
+	padding: 50px;
+	font-size: 60px;
 	text-align: center;
 	align-self: center;
 	color: white;
