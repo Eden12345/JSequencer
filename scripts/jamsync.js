@@ -1,3 +1,5 @@
+// WARNING: The code in this file was written in a rush, never edited, and is therefore terrible
+
 import Tone from "Tone";
 
 const colors = ["yellow", "green", "blue", "purple"];

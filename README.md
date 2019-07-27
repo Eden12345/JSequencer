@@ -1,3 +1,5 @@
+My hope is one day to combine a bunch of digital music creation apps into one free, browser-based DAW. Please let me know if you'd like to contribute!
+
 # JSequencer
 
 JSequencer is a step sequencer that uses digital synthesis through the Web Audio API and audio samples to create musical loops. It can also generate random patterns that allow you to explore its potential more fluidly.
@@ -6,7 +8,7 @@ JSequencer is a step sequencer that uses digital synthesis through the Web Audio
 
 ## Description
 
-After building on my experience creating the live improvisational project JamSync with the Tone.js library, I moved on to a sequencer using the same synthesizer and samples. This allows the user to play live instruments in JamSync along with their JSequencer patterns to further expand options for improvisation.
+Building on my live improvisational project JamSync, also built with the Tone.js library, I moved on to a sequencer using the same synthesizer and samples. This allows the user to play live instruments in JamSync along with their JSequencer patterns to further expand options for improvisation.
 
 ![screencap](https://github.com/Eden12345/JamSync/blob/master/assets/jseqscreencap.png)
 
@@ -30,8 +32,3 @@ Using jQuery, I added a simple visual effect to indicate to the user whenever ke
 
 
 ![screencap](https://github.com/Eden12345/JamSync/blob/master/assets/screencap.png)
-
-
-## Upcoming Changes
-
-  * Refactor with DOMinateJS -- the entire project will be refactored to use my own custom DOM manipulation library rather than jQuery

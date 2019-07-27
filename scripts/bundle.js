@@ -734,7 +734,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory){
 		 * @type {String}
 		 * @static
 		 */
-	    Tone.version = 'r11';
+	    Tone.version = 'r12-dev';
 	    // allow optional silencing of this log
 	    if (!window.TONE_SILENCE_VERSION_LOGGING) {
 	        console.log('%c * Tone.js ' + Tone.version + ' * ', 'background: #000; color: #fff');
@@ -2820,7 +2820,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory){
 	    Tone.Time.prototype.toTicks = function () {
 	        var quarterTime = this._beatsToUnits(1);
 	        var quarters = this.valueOf() / quarterTime;
-	        return Math.floor(quarters * Tone.Transport.PPQ);
+	        return Math.round(quarters * Tone.Transport.PPQ);
 	    };
 	    /**
 		 *  Return the time in samples
@@ -3493,15 +3493,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory){
 			 *  @private
 			 */
 	        this.overridden = false;
-	        /**
-			 *  If there is an LFO, this is where it is held.
-			 *  @type  {Tone.LFO}
-			 *  @private
-			 */
-	        this._lfo = null;
-	        if (Tone.isObject(options.lfo)) {
-	            this.value = options.lfo;
-	        } else if (!Tone.isUndef(options.value)) {
+	        if (!Tone.isUndef(options.value)) {
 	            this.value = options.value;
 	        }
 	    };
@@ -3527,22 +3519,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory){
 	            return this._toUnits(this._param.value);
 	        },
 	        set: function (value) {
-	            if (Tone.isObject(value)) {
-	                //throw an error if the LFO needs to be included
-	                if (Tone.isUndef(Tone.LFO)) {
-	                    throw new Error('Include \'Tone.LFO\' to use an LFO as a Param value.');
-	                }
-	                //remove the old one
-	                if (this._lfo) {
-	                    this._lfo.dispose();
-	                }
-	                this._lfo = new Tone.LFO(value).start();
-	                this._lfo.connect(this.input);
-	            } else {
-	                var convertedVal = this._fromUnits(value);
-	                this._param.cancelScheduledValues(0);
-	                this._param.value = convertedVal;
-	            }
+	            var convertedVal = this._fromUnits(value);
+	            this._param.cancelScheduledValues(0);
+	            this._param.value = convertedVal;
 	        }
 	    });
 	    /**
@@ -3832,29 +3811,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory){
 	        return this;
 	    };
 	    /**
-		 *  The LFO created by the signal instance. If none
-		 *  was created, this is null.
-		 *  @type {Tone.LFO}
-		 *  @readOnly
-		 *  @memberOf Tone.Param#
-		 *  @name lfo
-		 */
-	    Object.defineProperty(Tone.Param.prototype, 'lfo', {
-	        get: function () {
-	            return this._lfo;
-	        }
-	    });
-	    /**
 		 *  Clean up
 		 *  @returns {Tone.Param} this
 		 */
 	    Tone.Param.prototype.dispose = function () {
 	        Tone.AudioNode.prototype.dispose.call(this);
 	        this._param = null;
-	        if (this._lfo) {
-	            this._lfo.dispose();
-	            this._lfo = null;
-	        }
 	        return this;
 	    };
 	    return Tone.Param;
@@ -22382,238 +22344,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory){
 	});
 	Module(function (Tone) {
 	    /**
-		 *  @class Tone.MultiPlayer is well suited for one-shots, multi-sampled instruments
-		 *         or any time you need to play a bunch of audio buffers. 
-		 *
-		 *  @deprecated Use [Tone.Players](Players) instead.
-		 *  @param  {Object|Array|Tone.Buffers}  buffers  The buffers which are available
-		 *                                                to the MultiPlayer
-		 *  @param {Function} onload The callback to invoke when all of the buffers are loaded.
-		 *  @extends {Tone}
-		 *  @example
-		 * var multiPlayer = new MultiPlayer({
-		 * 	"kick" : "path/to/kick.mp3",
-		 * 	"snare" : "path/to/snare.mp3",
-		 * }, function(){
-		 * 	multiPlayer.start("kick");
-		 * });
-		 *  @example
-		 * //can also store the values in an array
-		 * var multiPlayer = new MultiPlayer(["path/to/kick.mp3", "path/to/snare.mp3"], 
-		 * function(){
-		 * 	//if an array is passed in, the samples are referenced to by index
-		 * 	multiPlayer.start(1);
-		 * });
-		 */
-	    Tone.MultiPlayer = function (urls) {
-	        console.warn('Tone.MultiPlayer is deprecated. Use Tone.Players instead.');
-	        //remove the urls from the options
-	        if (arguments.length === 1 && !Tone.isUndef(arguments[0]) && !arguments[0].hasOwnProperty('urls')) {
-	            urls = { 'urls': urls };
-	        }
-	        var options = Tone.defaults(arguments, [
-	            'urls',
-	            'onload'
-	        ], Tone.MultiPlayer);
-	        Tone.Source.call(this, options);
-	        if (options.urls instanceof Tone.Buffers) {
-	            /**
-				 *  All the buffers belonging to the player.
-				 *  @type  {Tone.Buffers}
-				 */
-	            this.buffers = options.urls;
-	        } else {
-	            this.buffers = new Tone.Buffers(options.urls, options.onload);
-	        }
-	        /**
-			 *  Keeps track of the currently playing sources.
-			 *  @type  {Object}
-			 *  @private
-			 */
-	        this._activeSources = {};
-	        /**
-			 *  The fade in envelope which is applied
-			 *  to the beginning of the BufferSource
-			 *  @type  {Time}
-			 */
-	        this.fadeIn = options.fadeIn;
-	        /**
-			 *  The fade out envelope which is applied
-			 *  to the end of the BufferSource
-			 *  @type  {Time}
-			 */
-	        this.fadeOut = options.fadeOut;
-	    };
-	    Tone.extend(Tone.MultiPlayer, Tone.Source);
-	    /**
-		 *  The defaults
-		 *  @type  {Object}
-		 */
-	    Tone.MultiPlayer.defaults = {
-	        'onload': Tone.noOp,
-	        'fadeIn': 0,
-	        'fadeOut': 0
-	    };
-	    /**
-		 * Make the source from the buffername
-		 * @param  {String} bufferName
-		 * @return {Tone.BufferSource}
-		 * @private
-		 */
-	    Tone.MultiPlayer.prototype._makeSource = function (bufferName) {
-	        var buffer;
-	        if (Tone.isString(bufferName) || Tone.isNumber(bufferName)) {
-	            buffer = this.buffers.get(bufferName).get();
-	        } else if (bufferName instanceof Tone.Buffer) {
-	            buffer = bufferName.get();
-	        } else if (bufferName instanceof AudioBuffer) {
-	            buffer = bufferName;
-	        }
-	        var source = new Tone.BufferSource(buffer).connect(this.output);
-	        if (!this._activeSources.hasOwnProperty(bufferName)) {
-	            this._activeSources[bufferName] = [];
-	        }
-	        this._activeSources[bufferName].push(source);
-	        return source;
-	    };
-	    /**
-		 *  Start a buffer by name. The `start` method allows a number of options
-		 *  to be passed in such as offset, interval, and gain. This is good for multi-sampled 
-		 *  instruments and sound sprites where samples are repitched played back at different velocities.
-		 *  @param  {String}  bufferName    The name of the buffer to start.
-		 *  @param  {Time}  time      When to start the buffer.
-		 *  @param  {Time}  [offset=0]    The offset into the buffer to play from.
-		 *  @param  {Time=}  duration   How long to play the buffer for.
-		 *  @param  {Interval}  [pitch=0]  The interval to repitch the buffer.
-		 *  @param  {Gain}  [gain=1]      The gain to play the sample at.
-		 *  @return  {Tone.MultiPlayer}  this
-		 */
-	    Tone.MultiPlayer.prototype.start = function (bufferName, time, offset, duration, pitch, gain) {
-	        time = this.toSeconds(time);
-	        var source = this._makeSource(bufferName);
-	        source.start(time, offset, duration, Tone.defaultArg(gain, 1), this.fadeIn);
-	        if (duration) {
-	            source.stop(time + this.toSeconds(duration), this.fadeOut);
-	        }
-	        pitch = Tone.defaultArg(pitch, 0);
-	        source.playbackRate.value = Tone.intervalToFrequencyRatio(pitch);
-	        return this;
-	    };
-	    /**
-		 *  Start a looping buffer by name. Similar to `start`, but the buffer
-		 *  is looped instead of played straight through. Can still be stopped with `stop`. 
-		 *  @param  {String}  bufferName    The name of the buffer to start.
-		 *  @param  {Time}  time      When to start the buffer.
-		 *  @param  {Time}  [offset=0]    The offset into the buffer to play from.
-		 *  @param  {Time=}  loopStart   The start of the loop.
-		 *  @param  {Time=}  loopEnd	The end of the loop.
-		 *  @param  {Interval}  [pitch=0]  The interval to repitch the buffer.
-		 *  @param  {Gain}  [gain=1]      The gain to play the sample at.
-		 *  @return  {Tone.MultiPlayer}  this
-		 */
-	    Tone.MultiPlayer.prototype.startLoop = function (bufferName, time, offset, loopStart, loopEnd, pitch, gain) {
-	        time = this.toSeconds(time);
-	        var source = this._makeSource(bufferName);
-	        source.loop = true;
-	        source.loopStart = this.toSeconds(Tone.defaultArg(loopStart, 0));
-	        source.loopEnd = this.toSeconds(Tone.defaultArg(loopEnd, 0));
-	        source.start(time, offset, undefined, Tone.defaultArg(gain, 1), this.fadeIn);
-	        pitch = Tone.defaultArg(pitch, 0);
-	        source.playbackRate.value = Tone.intervalToFrequencyRatio(pitch);
-	        return this;
-	    };
-	    /**
-		 *  Stop the first played instance of the buffer name.
-		 *  @param  {String}  bufferName  The buffer to stop.
-		 *  @param  {Time=}  time    When to stop the buffer
-		 *  @return  {Tone.MultiPlayer}  this
-		 */
-	    Tone.MultiPlayer.prototype.stop = function (bufferName, time) {
-	        if (this._activeSources[bufferName] && this._activeSources[bufferName].length) {
-	            time = this.toSeconds(time);
-	            this._activeSources[bufferName].shift().stop(time, this.fadeOut);
-	        } else {
-	            throw new Error('Tone.MultiPlayer: cannot stop a buffer that hasn\'t been started or is already stopped');
-	        }
-	        return this;
-	    };
-	    /**
-		 *  Stop all currently playing buffers at the given time.
-		 *  @param  {Time=}  time  When to stop the buffers.
-		 *  @return  {Tone.MultiPlayer}  this
-		 */
-	    Tone.MultiPlayer.prototype.stopAll = function (time) {
-	        time = this.toSeconds(time);
-	        for (var bufferName in this._activeSources) {
-	            var sources = this._activeSources[bufferName];
-	            for (var i = 0; i < sources.length; i++) {
-	                sources[i].stop(time);
-	            }
-	        }
-	        return this;
-	    };
-	    /**
-		 *  Add another buffer to the available buffers.
-		 *  @param {String} name The name to that the buffer is refered
-		 *                       to in start/stop methods. 
-		 *  @param {String|Tone.Buffer} url The url of the buffer to load
-		 *                                  or the buffer.
-		 *  @param {Function} callback The function to invoke after the buffer is loaded.
-		 */
-	    Tone.MultiPlayer.prototype.add = function (name, url, callback) {
-	        this.buffers.add(name, url, callback);
-	        return this;
-	    };
-	    /**
-		 *  Returns the playback state of the source. "started"
-		 *  if there are any buffers playing. "stopped" otherwise.
-		 *  @type {Tone.State}
-		 *  @readOnly
-		 *  @memberOf Tone.MultiPlayer#
-		 *  @name state
-		 */
-	    Object.defineProperty(Tone.MultiPlayer.prototype, 'state', {
-	        get: function () {
-	            return this._activeSources.length > 0 ? Tone.State.Started : Tone.State.Stopped;
-	        }
-	    });
-	    /**
-		 * Mute the output. 
-		 * @memberOf Tone.MultiPlayer#
-		 * @type {boolean}
-		 * @name mute
-		 * @example
-		 * //mute the output
-		 * source.mute = true;
-		 */
-	    Object.defineProperty(Tone.MultiPlayer.prototype, 'mute', {
-	        get: function () {
-	            return this._volume.mute;
-	        },
-	        set: function (mute) {
-	            this._volume.mute = mute;
-	        }
-	    });
-	    /**
-		 *  Clean up.
-		 *  @return  {Tone.MultiPlayer}  this
-		 */
-	    Tone.MultiPlayer.prototype.dispose = function () {
-	        Tone.Source.prototype.dispose.call(this);
-	        for (var bufferName in this._activeSources) {
-	            this._activeSources[bufferName].forEach(function (source) {
-	                source.dispose();
-	            });
-	        }
-	        this.buffers.dispose();
-	        this.buffers = null;
-	        this._activeSources = null;
-	        return this;
-	    };
-	    return Tone.MultiPlayer;
-	});
-	Module(function (Tone) {
-	    /**
 		 * @class Tone.GrainPlayer implements [granular synthesis](https://en.wikipedia.org/wiki/Granular_synthesis).
 		 *        Granular Synthesis enables you to adjust pitch and playback rate independently. The grainSize is the
 		 *        amount of time each small chunk of audio is played for and the overlap is the
@@ -24209,6 +23939,8 @@ const seq = new Sequencer();
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_Tone__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_Tone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_Tone__);
+// WARNING: The code in this file was written in a rush, never edited, and is therefore terrible
+
 
 
 const colors = ["yellow", "green", "blue", "purple"];
@@ -25018,13 +24750,15 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
 const instructions = [
-  "Welcome! Press Next to continue through the instructions, or press Skip to head straight to the JSequencer.",
-  "The grid of buttons represents a series of sounds that will be played in a loop. Each color corresponds to a different instrument. <br> <br> blue = drums | purple = vocals | green = chords | yellow = synthesizer",
+  "Welcome! The JSequencer is music app for all ages that allows you to layer instruments and play sounds in a loop.<br> <br>Press Next to continue through the instructions, or press Skip to head straight to the JSequencer.",
+  "The grid of buttons represents a series of sounds that will be played in a loop. Each color corresponds to a different instrument.<br> <br>blue = drums | purple = vocals | green = chords | yellow = synthesizer",
   "When the JSequencer is playing, it will highlight which sounds are being played at that moment in your loop.",
-  "The main controls are on the left. The triangle at the top is the play button (which will turn into a square stop button while the JSequencer is playing). <br> <br> The slider adjusts the speed at which your loop will play.",
+  "The main controls are on the left. The triangle at the top is the play button (which will turn into a square stop button while the JSequencer is playing).<br> <br>The slider adjusts the speed at which your loop will play.",
   "The randomize button will randomly change the speed and all the buttons on the grid. The clear button will clear the entire grid.",
-  "The example sequence might give you a better idea of how the JSequencer works. Try playing it after you click Finish!"
+  "The example sequence might give you a better idea of how the JSequencer works. Try playing it after you click Finish!<br> <br>(If you'd like to try something else, check out the JamSync app by clicking the button at the top.)"
 ];
+
+$(".instruction").html(instructions[0]);
 
 let currentIndex = 0;
 

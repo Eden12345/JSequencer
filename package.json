@@ -4,7 +4,7 @@
   "description": "The features of this JavaScript sequencer will include:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --watch"
   },
   "keywords": [],
   "author": "",
