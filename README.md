@@ -4,7 +4,7 @@ My hope is one day to combine a bunch of digital music creation apps into one fr
 
 JSequencer is a step sequencer that uses digital synthesis through the Web Audio API and audio samples to create musical loops. It can also generate random patterns that allow you to explore its potential more fluidly.
 
-[Live Demo](http://ethangooding.com/JSequencer/)
+[Live Demo](https://eden.cool/JSequencer/)
 
 ## Description
 
@@ -22,13 +22,12 @@ You can check out the README for my older project JamSync below, which might giv
 
 JamSync is a music application that maps four digital instruments to the keyboard to allow multiple people to improvise synchronously on the same keyboard from a web browser.
 
-[Live Demo](http://ethangooding.com/JamSync/)
+[Live Demo](https://eden.cool/JamSync/)
 
 ## Description
 
 This was my first experiment with Tone.js, which I used to create an oscillator through the Web Audio API that can be tuned to different pitches. It also has a streamlined envelope filter options hash, making it straightforward to change the attack and release. I then mapped samples of three other instruments to specific sections of the keyboard so that the synth could be played in conjunction with other players.
 
 Using jQuery, I added a simple visual effect to indicate to the user whenever keypress are triggering an action on a specific instrument.
-
 
 ![screencap](https://github.com/Eden12345/JamSync/blob/master/assets/screencap.png)
