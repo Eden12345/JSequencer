@@ -22,7 +22,7 @@ You can check out the README for my older project JamSync below, which might giv
 
 JamSync is a music application that maps four digital instruments to the keyboard to allow multiple people to improvise synchronously on the same keyboard from a web browser.
 
-[Live Demo](https://eden.cool/JamSync/)
+[Live Demo](https://eden.cool/JSequencer/jamsync.html)
 
 ## Description
 
